@@ -3,50 +3,76 @@
 @{
     int currentPage = int.Parse(ViewContext.RouteData.Values["page"] as string ?? "0");
     Post featuredPost = Model.First();
+    List<Post> posts = Model.Skip(1).Take(4).ToList();
+    List<Post> postsAside = Model.Skip(5).Take(8).ToList();
 }
 
-<div class="container">
-    <div class="row">
-        <div class="col-sm-12 col-md-9 col-xl-9 featured">
-            <h4><span>Featured</span></h4>
-            <div class="row">
-                <div class="col-sm-12 col-md-6">
-                    @{
-                        await Html.RenderPartialAsync("PostFeatured.cshtml", featuredPost);
-                    }
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-9 col-xl-9 featured">
+                <h4><span>Featured</span></h4>
+                <div class="row">
+                    <div class="col-sm-12 col-md-6">
+                        @{
+                            await Html.RenderPartialAsync("PostFeatured.cshtml", featuredPost);
+                        }
+                    </div>
+                    <div class="col-sm-12 col-md-6">
+                        @for (int x = 0; x < posts.Count(); x++)
+                        {
+                            var vdd = new ViewDataDictionary(ViewData);
+                            if (x == 0)
+                            {
+                                vdd.Add("CssClass", "bg");
+                            }
+                            else
+                            {
+                                vdd.Add("CssClass", "no-bg");
+                            }
+
+                            await Html.RenderPartialAsync("Post.cshtml", posts[x], vdd);
+
+                        }
+                    </div>
                 </div>
-                <div class="col-sm-12 col-md-6">
-                    @foreach (var post in Model.Skip(1).Take(4))
+                <nav class="pagination" aria-label="Pagination">
+                    @if (Model.Any())
                     {
-                        await Html.RenderPartialAsync("Post.cshtml", post);
+                        <a rel="prev" href="@ViewData["prev"]" title="Older posts" class="btn"><i class="fa fa-angle-double-left"></i> Older</a>
                     }
-                </div>
+                    @if (currentPage > 0)
+                    {
+                        <a rel="next" href="@ViewData["next"]" title="Newer posts">Newer <i class="fa fa-angle-double-right"></i></a>
+                    }
+                    <br /><br />
+
+                    @section Head {
+                        @if (Model.Any())
+                        {
+                            <link rel="prev" href="@ViewData["prev"]" />
+                        }
+                        @if (currentPage > 0)
+                        {
+                            <link rel="next" href="@ViewData["next"]" />
+                        }
+                    }
+                </nav>
+            </div>
+
+            <div class="col-sm-12 col-md-3 col-xl-3">
+                <aside class="posts">
+                    <h4><span>More blog posts</span></h4>
+                    @foreach (var item in postsAside)
+                    {
+                        await Html.RenderPartialAsync("PostAside.cshtml", item);
+                    }
+                </aside>
+                @{await Html.RenderPartialAsync("_SocialSharing", ViewData["Title"]);}
             </div>
         </div>
+
+
+        
     </div>
-</div>
 
-<nav class="pagination container" aria-label="Pagination">
-    @if (Model.Any())
-    {
-        <a rel="prev" href="@ViewData["prev"]" title="Older posts">&laquo; Older</a>
-    }
-    @if (currentPage > 0)
-    {
-        <a rel="next" href="@ViewData["next"]" title="Newer posts">Newer &raquo;</a>
-    }
-    <br /><br />
 
-    @section Head {
-        @if (Model.Any())
-        {
-            <link rel="prev" href="@ViewData["prev"]" />
-        }
-        @if (currentPage > 0)
-        {
-            <link rel="next" href="@ViewData["next"]" />
-        }
-    }
-</nav>
-
-@{await Html.RenderPartialAsync("_SocialSharing", ViewData["Title"]);}

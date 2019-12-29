@@ -14,16 +14,16 @@
 
 <article class="mb-3" itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
     
-    <figure>
+    <figure class="bg">
         <a href="@Model.GetLink()" rel="canonical" itemprop="url">            
-            <img src="@previewImageUrl" class="featured-preview"/>
+            <img src="@previewImageUrl" class="featured-preview" height="224"/>
         </a>
     </figure>
     <header>
         <h3 itemprop="name headline"><a href="@Model.GetLink()" rel="canonical" itemprop="url">@Model.Title</a></h3>
         @if (User.Identity.IsAuthenticated)
         {
-            <a asp-controller="Blog" asp-action="edit" asp-route-id="@Model.ID" title="Edit the post">Edit post</a>
+            <a asp-controller="Blog" asp-action="edit" asp-route-id="@Model.ID" title="Edit the post" class="edit">Edit post</a>
         }
     </header>
 

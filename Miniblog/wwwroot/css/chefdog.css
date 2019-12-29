@@ -1,6 +1,4 @@
-﻿@import url(https://fonts.googleapis.com/css?family=Cabin:400,700&amp;display=swap);
-@import url(https://fonts.googleapis.com/css?family=B612+Mono&display=swap);
-@import url(https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i&display=swap);
+﻿
 /* global */
 .btn {
     border: 1px solid rgba(0,0,0,.5);
@@ -19,6 +17,15 @@ a{
 a:hover{
     color:#e27900;
     text-decoration: none;
+}
+a.edit{
+    color:#e27900;
+}
+.divider{
+    position: relative;
+    border-bottom: 1px solid rgba(0,0,0,.15);
+    margin-top: 1.5rem;
+    margin-bottom: 2.25rem;
 }
 
 /* header */
@@ -65,6 +72,8 @@ a:hover{
 main{
     padding-top: 2rem;
 }
+
+/* featured blog postst */
 img.featured-preview{
     max-width: 400px;
 }
@@ -104,18 +113,18 @@ img.featured-preview{
     letter-spacing: 0.5px;
     margin-bottom: 1rem;
 }
-.featured footer{
+.featured footer, aside.posts footer{
     color: rgba(0,0,0,.54) !important;
     fill: rgba(0,0,0,.54) !important;
     font-size: 0.8rem;
     line-height: 1.2;
 }
-.featured footer .categories{
+.featured footer .categories, aside.posts footer .categories{
     list-style: none;
     padding:0;
     margin: 0;
 }
-.featured footer .categories li{
+.featured footer .categories li, aside.posts footer .categories li{
     float:left;
     padding-right:4px;
 }
@@ -123,7 +132,7 @@ img.featured-preview{
     padding-right: 2px;
 }
 
-article.post{
+.bg, article.post.bg{
     background-color: #efe6da;
 }
 article.post .content{
@@ -132,4 +141,61 @@ article.post .content{
 }
 article.post figure{
     margin:0;
+}
+article time{
+    line-height: 1.2;
+}
+
+/* social */
+.socialsharing ul{
+    list-style: none;
+    padding:0;
+    margin:0;
+}
+/* navigation */
+.pagination{
+    display: inline;
+}
+.pagination .btn{
+    margin-left: 0;
+}
+
+/**/
+
+/* asides */
+aside{
+    padding-bottom: 32px;
+}
+aside.posts h4, aside.socialsharing h4 {
+    border-bottom: 1px solid rgba(0,0,0,.15);
+    margin-bottom: 1.8rem;
+    font-weight: 700;
+}
+aside.posts h4 span, aside.socialsharing h4 span {
+    border-bottom: 1px solid rgba(0,0,0,.53);
+    display: inline-block;
+    padding-bottom: 0.5rem;
+    margin-bottom: -1px;
+}
+aside.posts h5{
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+/* footer */
+
+.disclaimer{
+    list-style: none;
+    padding:0;
+    margin:0;
+    float: left
+}
+.disclaimer li {
+    padding:0 8px 0 8px;
+    margin:0;
+    float: left;
+    border-right: solid 1px #CCCCCC;
+}
+.disclaimer li:last-child {
+    border:none;
 }

@@ -9,8 +9,19 @@
     <title>@ViewData["Title"]</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1" />
     <meta name="description" content="@ViewData["Description"]" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
-    <link rel="stylesheet" href="~/css/chefdog.scss" inline />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cabin:400,700&amp;display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=B612+Mono&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i&display=swap" />
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/lib/fontawesome/css/font-awesome.css" type='text/css' />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="~/lib/fontawesome/css/font-awesome.min.css" type='text/css' />
+    </environment>
+
+    <link rel="stylesheet" href="~/css/chefdog.css" inline />
     @RenderSection("Head", required: false)
 
     <meta property="og:type" content="website" />
@@ -71,8 +82,9 @@
         @RenderBody()
     </main>
 
-    <footer class="sitefooter">
+    <footer class="sitefooter mt-5">
         <div class="container">
+            <div class="divider">&#160;</div>
             <ul class="disclaimer">
                 <li>
                     Blog <span itemprop="author">By @settings.Value.Owner</span>

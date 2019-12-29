@@ -109,7 +109,7 @@ namespace Miniblog.Models
             existing.IsPublished = post.IsPublished;
             existing.Content = post.Content.Trim();
             existing.Excerpt = post.Excerpt.Trim();
-            existing.PreviewImageUrl = post.PreviewImageUrl;
+            existing.PreviewImageUrl = string.IsNullOrEmpty(post.PreviewImageUrl) ? existing.PreviewImageUrl : post.PreviewImageUrl;
 
             await _blog.SavePost(existing);
 
