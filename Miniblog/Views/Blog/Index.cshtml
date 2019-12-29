@@ -2,17 +2,26 @@
 @inject IOptionsSnapshot<BlogSettings> settings
 @{
     int currentPage = int.Parse(ViewContext.RouteData.Values["page"] as string ?? "0");
-    IEnumerable<Post> featuredPosts = Model.Take(4);
+    Post featuredPost = Model.First();
 }
 
 <div class="container">
     <div class="row">
         <div class="col-sm-12 col-md-9 col-xl-9 featured">
             <h4><span>Featured</span></h4>
-            @foreach (var post in featuredPosts)
-            {
-                await Html.RenderPartialAsync("PostFeatured.cshtml", post);
-            }
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    @{
+                        await Html.RenderPartialAsync("PostFeatured.cshtml", featuredPost);
+                    }
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    @foreach (var post in Model.Skip(1).Take(4))
+                    {
+                        await Html.RenderPartialAsync("Post.cshtml", post);
+                    }
+                </div>
+            </div>
         </div>
     </div>
 </div>

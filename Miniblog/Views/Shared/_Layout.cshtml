@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1" />
     <meta name="description" content="@ViewData["Description"]" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
-    <link rel="stylesheet" href="~/css/cfgMain.scss" inline />
+    <link rel="stylesheet" href="~/css/chefdog.scss" inline />
     @RenderSection("Head", required: false)
 
     <meta property="og:type" content="website" />
@@ -47,12 +47,12 @@
 
                             if (User.Identity.IsAuthenticated)
                             {
-                                <li><a asp-controller="Blog" asp-action="Edit">New post</a></li>
-                                <li><a href="~/logout/" title="Sign out as administrator">Sign out</a></li>
+                                <li><a asp-controller="Blog" asp-action="Edit" class="btn">New post</a></li>
+                                <li><a href="~/logout/" title="Sign out as administrator" class="btn">Sign out</a></li>
                             }
                             else
                             {
-                                <li><a href="~/login/?returnUrl=@path" rel="nofollow" title="Sign in as administrator">Sign in</a></li>
+                                <li><a href="~/login/?returnUrl=@path" rel="nofollow" title="Sign in as administrator" class="btn">Sign in</a></li>
                             }
                         }
                     </ul>
@@ -73,12 +73,20 @@
 
     <footer class="sitefooter">
         <div class="container">
-            <p>
-                Blog <span itemprop="author" class=" float-left">By @settings.Value.Owner</span>
-            </p>
-            <p>
-                Powered by <a href="https://github.com/madskristensen/Miniblog" rel="noopener noreferrer" target="_blank">Miniblog</a>
-            </p>
+            <ul class="disclaimer">
+                <li>
+                    Blog <span itemprop="author">By @settings.Value.Owner</span>
+                </li>
+                <li>
+                    Photo's by E.Korevaar
+                </li>
+                <li>
+                    Miniblog theme: Chefdog
+                </li>
+                <li>
+                    Powered by <a href="https://github.com/madskristensen/Miniblog" rel="noopener noreferrer" target="_blank">Miniblog</a>
+                </li>
+            </ul>            
         </div>
     </footer>
 

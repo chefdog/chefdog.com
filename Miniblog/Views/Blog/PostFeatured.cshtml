@@ -5,16 +5,18 @@
     ViewData["Description"] = Model.Excerpt;
     bool showFullPost = ViewContext.RouteData.Values.ContainsKey("slug");
     string host = Context.Request.Scheme + "://" + Context.Request.Host;
+    string previewImageUrl = String.IsNullOrEmpty(Model.PreviewImageUrl) ? settings.Value.DefaultFeaturedPreviewImageUrl : Model.PreviewImageUrl;
 }
 
 @section Head {
     <link rel="canonical" href="@(host + Model.GetLink())" />
 }
 
-<article class="post" itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+<article class="mb-3" itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+    
     <figure>
-        <a href="@Model.GetLink()" rel="canonical" itemprop="url">
-            <img src="@Model.PreviewImageUrl" width="320" height="240" />
+        <a href="@Model.GetLink()" rel="canonical" itemprop="url">            
+            <img src="@previewImageUrl" class="featured-preview"/>
         </a>
     </figure>
     <header>
@@ -26,7 +28,7 @@
     </header>
 
     <div class="excerpt" itemprop="articleBody mainEntityOfPage" cdnify>
-        @Html.Raw(Model.RenderContent())
+        @Html.Raw(Model.Excerpt)
     </div>
 
     <footer>
