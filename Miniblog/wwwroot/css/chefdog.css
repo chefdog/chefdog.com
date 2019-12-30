@@ -146,6 +146,11 @@ article time{
     line-height: 1.2;
 }
 
+article.post.full .content{
+    padding: 0;
+    
+}
+
 /* social */
 .socialsharing ul{
     list-style: none;
@@ -181,12 +186,14 @@ aside.posts h5{
     font-size: 1.1em;
     font-weight: bold;
 }
-
+aside.posts article.post{
+    margin-bottom:16px;
+}
 /* footer */
 
 .disclaimer{
     list-style: none;
-    padding:0;
+    padding:0 0 16px 0;
     margin:0;
     float: left
 }
