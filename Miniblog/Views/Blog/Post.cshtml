@@ -10,27 +10,26 @@
 
 @section Head {
     <link rel="canonical" href="@(host + Model.GetLink())" />
-}
+    @if (showFullPost) {
+    <link rel="stylesheet" href="~/css/comments.scss" />
+        }
+    }
 
 @{
     if (showFullPost)
     {
-        <div class="container">
-        @{ 
+    <div class="container">
+        
+        @{
             await Html.RenderPartialAsync("Article.cshtml", Model);
-        }
-        </div>
+            await Html.RenderPartialAsync("_SocialSharing", Model.Title);
+            await Html.RenderPartialAsync("Comments");
+        }       
+    </div>
     }
     else {
         await Html.RenderPartialAsync("Article.cshtml", Model);
     }
-}
-
-@if (showFullPost)
-{
-    <link rel="stylesheet" href="~/css/comments.scss" />
-    await Html.RenderPartialAsync("_SocialSharing", Model.Title);
-    await Html.RenderPartialAsync("Comments");
 }
 
 @if (User.Identity.IsAuthenticated)
