@@ -2,8 +2,9 @@
 {
     public class BlogSettings
     {
-        public string Name { get; set; } = "Coffee blog";
-        public string Description { get; set; } = "Coffee reviews and taste sessions";
+        public string Name { get; set; } = "Chefdog blog";
+        public string SubTitle { get; set; } = "Chefdog's koffie hoekje";
+        public string Description { get; set; } = "Koffie & Techologie";
         public string Owner { get; set; } = "Chefdog";
         public int PostsPerPage { get; set; } = 16;
         public int CommentsCloseAfterDays { get; set; } = 10;
