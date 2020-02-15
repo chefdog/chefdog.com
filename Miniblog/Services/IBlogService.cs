@@ -24,6 +24,7 @@ namespace Miniblog
         Task DeletePost(Post post);
 
         Task<string> SaveFile(byte[] bytes, string fileName, string suffix = null);
+        Task DeletePostImage(Post post);
     }
 
     public abstract class InMemoryBlogServiceBase : IBlogService
@@ -103,6 +104,8 @@ namespace Miniblog
         public abstract Task SavePost(Post post);
 
         public abstract Task DeletePost(Post post);
+
+        public abstract Task DeletePostImage(Post post);
 
         public abstract Task<string> SaveFile(byte[] bytes, string fileName, string suffix = null);
 

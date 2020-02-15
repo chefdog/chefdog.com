@@ -29,7 +29,8 @@
 
     <label for="previewImage" class="label">Preview image</label>
     <input asp-for="@Model.PreviewFile" type="file" id="previewImage">
-    <br/>
+    <input asp-for="@Model.RemovePreviewImageUrl" type="checkbox" />
+    <br />
 
     <label asp-for="@Model.Excerpt" class="label">Excerpt</label>
     <textarea asp-for="@Model.Excerpt" rows="3" placeholder="Short description of blog post" aria-describedby="desc_excerpt">@Model.Excerpt</textarea>
@@ -37,6 +38,26 @@
     <br />
 
     <textarea asp-for="@Model.Content" rows="20" aria-label="Content">@Model.Content</textarea>
+    <br />
+
+    <label asp-for="@Model.Review.Title" class="label">Title</label>
+    <input asp-for="@Model.Review.Title" required placeholder="Title of review" aria-describedby="desc_review_title" />
+    <span class="desc" id="desc_review_title">The review title</span>
+    <br />
+
+    <label asp-for="@Model.Review.GrinderSetting" class="label">Maal stand</label>
+    <input asp-for="@Model.Review.GrinderSetting" required placeholder="maal stand" aria-describedby="desc_grinder_setting" />
+    <span class="desc" id="desc_grinder_setting">Maal setting</span>
+    <br />
+
+    <label asp-for="@Model.Review.Weigth" class="label">Shot gewicht</label>
+    <input asp-for="@Model.Review.Weigth" required placeholder="maal stand" aria-describedby="desc_weight" />
+    <span class="desc" id="desc_weight">Maal setting</span>
+    <br />
+
+    <label asp-for="@Model.Review.ShotWeight" class="label">Shot gewicht</label>
+    <input asp-for="@Model.Review.ShotWeight" required placeholder="maal stand" aria-describedby="desc_shot_weight" />
+    <span class="desc" id="desc_shot_weight">Maal setting</span>
     <br />
 
     <input type="submit" value="Save" title="Save the post" />

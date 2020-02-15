@@ -78,7 +78,7 @@ namespace Miniblog.Models
             }
 
             var post = await _blog.GetPostById(id);
-
+            
             if (post != null)
             {
                 return View(post);
@@ -111,6 +111,11 @@ namespace Miniblog.Models
             existing.Content = post.Content.Trim();
             existing.Excerpt = post.Excerpt.Trim();
             existing.PreviewImageUrl = string.IsNullOrEmpty(post.PreviewImageUrl) ? existing.PreviewImageUrl : post.PreviewImageUrl;
+            existing.Review = post.Review;
+
+            if (post.RemovePreviewImageUrl) {
+                await _blog.DeletePostImage(existing);
+            }
 
             await _blog.SavePost(existing);
 
@@ -118,6 +123,8 @@ namespace Miniblog.Models
 
             return Redirect(post.GetLink());
         }
+
+        
 
         private async Task<string> Upload(Post post)
         {

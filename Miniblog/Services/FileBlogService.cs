@@ -106,7 +106,18 @@ namespace Miniblog
                                 new XElement("ispublished", post.IsPublished),
                                 new XElement("categories", string.Empty),
                                 new XElement("comments", string.Empty),
-                                new XElement("previewImageUrl", post.PreviewImageUrl)
+                                new XElement("previewImageUrl", post.PreviewImageUrl),
+                                new XElement("review", 
+                                    new XElement("reviewType", post.Review.ReviewType),
+                                    new XElement("weight", post.Review.Weigth),
+                                    new XElement("weightRecommended", post.Review.WeightRecommended),
+                                    new XElement("rating", post.Review.Rating),
+                                    new XElement("weight", post.Review.PublishDate.ToString("yyyy-MM-dd HH:mm:ss")),
+                                    new XElement("grinder", post.Review.GrinderSetting),
+                                    new XElement("shotWeight", post.Review.ShotWeight),
+                                    new XElement("shotWeightRecommended", post.Review.ShotWeightRecommended),
+                                    new XElement("elapseTime", post.Review.ElapseTime)
+                                )
                             ));
 
             XElement categories = doc.XPathSelectElement("post/categories");
@@ -139,6 +150,13 @@ namespace Miniblog
                 _cache.Add(post);
                 SortCache();
             }
+        }
+
+        public Task DeletePostImage(Post post)
+        {
+            string filePath = GetFilePath(post);
+            filePath = filePath + "files/" + post.PreviewFile;
+            return Task.CompletedTask;
         }
 
         public Task DeletePost(Post post)

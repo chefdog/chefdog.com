@@ -11,6 +11,7 @@ namespace Miniblog.Models
 {
     public class Post
     {
+        private Review review;
         [Required]
         public string ID { get; set; } = DateTime.UtcNow.Ticks.ToString();
 
@@ -27,6 +28,8 @@ namespace Miniblog.Models
 
         public string PreviewImageUrl { get; set; }
 
+        public bool RemovePreviewImageUrl { get; set; }
+
         public IFormFile PreviewFile { get; set; }
 
         public DateTime PubDate { get; set; } = DateTime.UtcNow;
@@ -38,6 +41,16 @@ namespace Miniblog.Models
         public IList<string> Categories { get; set; } = new List<string>();
 
         public IList<Comment> Comments { get; } = new List<Comment>();
+
+        public Review Review {
+            get {
+                if (review == null) review = new Review();
+                return review;
+            }
+            set {
+                review = value;
+            }
+        }
 
         public string GetLink()
         {
