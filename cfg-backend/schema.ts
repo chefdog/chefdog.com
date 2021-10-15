@@ -12,6 +12,7 @@ export const lists = {
           { label: 'Published', value: 'published' },
         ],
       }),
+      image: text({ validation: { isRequired: true } }),
       content: text(),
       publishDate: timestamp(),
       author: relationship({ ref: 'Author.posts', many: false }),

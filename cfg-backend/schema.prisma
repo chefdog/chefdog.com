@@ -16,6 +16,7 @@ model Post {
   id          String    @id @default(cuid())
   title       String    @default("")
   status      String?
+  image       String    @default("")
   content     String    @default("")
   publishDate DateTime?
   author      Author?   @relation("Post_author", fields: [authorId], references: [id])
