@@ -331,3 +331,4 @@ ASALocalRun/
 
 # keystone
 cfg-backend/.keystone/admin/.next/cache/**/*
+cfg-backend/.keystone/admin/.next/cache/webpack/server-development/0.pack

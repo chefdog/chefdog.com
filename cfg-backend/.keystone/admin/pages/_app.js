@@ -153,7 +153,7 @@ export default getApp({
     ],
   },
   fieldViews: [view0, view1, view2, view3, view4],
-  adminMetaHash: '1ncgtqj',
+  adminMetaHash: '15vp1i4',
   adminConfig: adminConfig,
   apiPath: '/api/graphql',
 });
