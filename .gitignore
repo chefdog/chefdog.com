@@ -330,5 +330,7 @@ ASALocalRun/
 .mfractor/
 
 # keystone
-cfg-backend/.keystone/admin/.next/cache/**/*
+cfg-backend/.keystone/admin/.next/cache/webpack/server-development/*.pack
+cfg-backend/.keystone/admin/.next/cache/webpack/client-development/*.pack
+cfg-backend/.keystone/admin/.next/cache/webpack/client-development/0.pack
 cfg-backend/.keystone/admin/.next/cache/webpack/server-development/0.pack
