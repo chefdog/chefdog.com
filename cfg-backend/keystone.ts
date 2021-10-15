@@ -11,6 +11,13 @@ export default config({
         await insertSeedData(context);
       }
     },
-  },
+  }, 
   lists,
+  graphql: {
+    cors: {
+      origin: '*',
+      credentials: false,
+      allowedHeaders: 'x-requested-with, Content-Type, origin, authorization, accept, client-security-token'
+    },
+  }
 });

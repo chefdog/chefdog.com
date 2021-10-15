@@ -8,6 +8,7 @@ type AuthorProps = {
 
 type PostProps = {
   title: string;
+  image: string;
   status: string;
   publishDate: string;
   author: Object;
