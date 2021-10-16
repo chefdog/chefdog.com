@@ -4,6 +4,27 @@
 Chefdog.com solution consists of two project; cfg-app and cfg-backend.
 The frontend is an angular 12 project, called cfg-app and cfg-backend is based on keystoneJs CMS.
 
+## Instructions
+
+To run this project:
+
+1. Clone the this repository locally
+2. Open solution with your favorite IDE, Visual Studio Code for example and open 2 terminals
+3. In terminal 1, navigate to this directory `cd cfg-backend`
+4. run `npm install`
+5. Run `npm run dev`
+
+This will start the Keystone Admin UI at [localhost:3000](http://localhost:3000).
+You can use the Admin UI to create items in your database.
+You can also access a Apollo Sandbox at [localhost:3000/api/graphql](http://localhost:3000/api/graphql), which allows you to directly run GraphQL queries and mutations.
+
+6. In terminal 2, navigate to this directory `cd cfg-app`
+7. run `npm install`
+8. run `ng serve`
+
+This will start the angular app at [localhost:4200](http://localhost:4200).
+
+
 ## CFG-APP
 
 ### Theme
@@ -27,22 +48,6 @@ CORS rules are placed in the keystone config (keystone.ts), change these accordi
 
 This project implements a basic **Blog**, with `Posts` and `Authors`.
 
-Use it as a starting place for learning how to use Keystone.
-
-### Instructions
-
-To run this project:
-
-1. Clone the Keystone repository locally
-2. Navigate to this directory `cd examples/blog`
-3. Run `yarn dev`
-
-This will start the Admin UI at [localhost:3000](http://localhost:3000).
-You can use the Admin UI to create items in your database.
-
-You can also access a Apollo Sandbox at [localhost:3000/api/graphql](http://localhost:3000/api/graphql), which allows you to directly run GraphQL queries and mutations.
-
-Congratulations, you're now up and running with Keystone! 🚀
 
 #### Optional: add sample data
 
