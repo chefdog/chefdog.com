@@ -6,6 +6,14 @@ The frontend is an angular 12 project, called cfg-app and cfg-backend is based o
 
 ## CFG-APP
 
+### Theme
+
+The current theme, located in assets/theme is under a commercial license. 
+The theme author: Damian Komoński (komon.ski)
+
+Should you want to use the theme, you will have to buy a license:
+
+https://themeforest.net/item/dblog-modern-personal-portfolio-and-blog-html-template/18545819
 
 
 ## CFG-BACKEND
