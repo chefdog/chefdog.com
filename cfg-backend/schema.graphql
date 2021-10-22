@@ -6,7 +6,14 @@ type Post {
   title: String
   status: PostStatusType
   image: String
-  content: String
+  intro: String
+  content(
+    where: ParagraphWhereInput! = {}
+    orderBy: [ParagraphOrderByInput!]! = []
+    take: Int
+    skip: Int! = 0
+  ): [Paragraph!]
+  contentCount(where: ParagraphWhereInput! = {}): Int
   publishDate: DateTime
   author: Author
 }
@@ -31,7 +38,8 @@ input PostWhereInput {
   title: StringFilter
   status: PostStatusTypeNullableFilter
   image: StringFilter
-  content: StringFilter
+  intro: StringFilter
+  content: ParagraphManyRelationFilter
   publishDate: DateTimeNullableFilter
   author: AuthorWhereInput
 }
@@ -82,6 +90,12 @@ input PostStatusTypeNullableFilter {
   not: PostStatusTypeNullableFilter
 }
 
+input ParagraphManyRelationFilter {
+  every: ParagraphWhereInput
+  some: ParagraphWhereInput
+  none: ParagraphWhereInput
+}
+
 input DateTimeNullableFilter {
   equals: DateTime
   in: [DateTime!]
@@ -98,7 +112,7 @@ input PostOrderByInput {
   title: OrderDirection
   status: OrderDirection
   image: OrderDirection
-  content: OrderDirection
+  intro: OrderDirection
   publishDate: OrderDirection
 }
 
@@ -111,9 +125,17 @@ input PostUpdateInput {
   title: String
   status: PostStatusType
   image: String
-  content: String
+  intro: String
+  content: ParagraphRelateToManyForUpdateInput
   publishDate: DateTime
   author: AuthorRelateToOneForUpdateInput
+}
+
+input ParagraphRelateToManyForUpdateInput {
+  disconnect: [ParagraphWhereUniqueInput!]
+  set: [ParagraphWhereUniqueInput!]
+  create: [ParagraphCreateInput!]
+  connect: [ParagraphWhereUniqueInput!]
 }
 
 input AuthorRelateToOneForUpdateInput {
@@ -131,9 +153,15 @@ input PostCreateInput {
   title: String
   status: PostStatusType
   image: String
-  content: String
+  intro: String
+  content: ParagraphRelateToManyForCreateInput
   publishDate: DateTime
   author: AuthorRelateToOneForCreateInput
+}
+
+input ParagraphRelateToManyForCreateInput {
+  create: [ParagraphCreateInput!]
+  connect: [ParagraphWhereUniqueInput!]
 }
 
 input AuthorRelateToOneForCreateInput {
@@ -210,6 +238,46 @@ input PostRelateToManyForCreateInput {
   connect: [PostWhereUniqueInput!]
 }
 
+type Paragraph {
+  id: ID!
+  title: String
+  content: String
+}
+
+input ParagraphWhereUniqueInput {
+  id: ID
+}
+
+input ParagraphWhereInput {
+  AND: [ParagraphWhereInput!]
+  OR: [ParagraphWhereInput!]
+  NOT: [ParagraphWhereInput!]
+  id: IDFilter
+  title: StringFilter
+  content: StringFilter
+}
+
+input ParagraphOrderByInput {
+  id: OrderDirection
+  title: OrderDirection
+  content: OrderDirection
+}
+
+input ParagraphUpdateInput {
+  title: String
+  content: String
+}
+
+input ParagraphUpdateArgs {
+  where: ParagraphWhereUniqueInput!
+  data: ParagraphUpdateInput!
+}
+
+input ParagraphCreateInput {
+  title: String
+  content: String
+}
+
 """
 The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
 """
@@ -231,6 +299,15 @@ type Mutation {
   updateAuthors(data: [AuthorUpdateArgs!]!): [Author]
   deleteAuthor(where: AuthorWhereUniqueInput!): Author
   deleteAuthors(where: [AuthorWhereUniqueInput!]!): [Author]
+  createParagraph(data: ParagraphCreateInput!): Paragraph
+  createParagraphs(data: [ParagraphCreateInput!]!): [Paragraph]
+  updateParagraph(
+    where: ParagraphWhereUniqueInput!
+    data: ParagraphUpdateInput!
+  ): Paragraph
+  updateParagraphs(data: [ParagraphUpdateArgs!]!): [Paragraph]
+  deleteParagraph(where: ParagraphWhereUniqueInput!): Paragraph
+  deleteParagraphs(where: [ParagraphWhereUniqueInput!]!): [Paragraph]
 }
 
 type Query {
@@ -250,6 +327,14 @@ type Query {
   ): [Author!]
   author(where: AuthorWhereUniqueInput!): Author
   authorsCount(where: AuthorWhereInput! = {}): Int
+  paragraphs(
+    where: ParagraphWhereInput! = {}
+    orderBy: [ParagraphOrderByInput!]! = []
+    take: Int
+    skip: Int! = 0
+  ): [Paragraph!]
+  paragraph(where: ParagraphWhereUniqueInput!): Paragraph
+  paragraphsCount(where: ParagraphWhereInput! = {}): Int
   keystone: KeystoneMeta!
 }
 
