@@ -3,8 +3,8 @@ import { getApp } from '@keystone-next/keystone/___internal-do-not-use-will-brea
 import * as view0 from '../../../node_modules/@keystone-next/keystone/___internal-do-not-use-will-break-in-patch/admin-ui/id-field-view';
 import * as view1 from '../../../node_modules/@keystone-next/keystone/fields/types/text/views';
 import * as view2 from '../../../node_modules/@keystone-next/keystone/fields/types/select/views';
-import * as view3 from '../../../node_modules/@keystone-next/keystone/fields/types/timestamp/views';
-import * as view4 from '../../../node_modules/@keystone-next/keystone/fields/types/relationship/views';
+import * as view3 from '../../../node_modules/@keystone-next/keystone/fields/types/relationship/views';
+import * as view4 from '../../../node_modules/@keystone-next/keystone/fields/types/timestamp/views';
 
 var adminConfig = {};
 
@@ -153,7 +153,7 @@ export default getApp({
     ],
   },
   fieldViews: [view0, view1, view2, view3, view4],
-  adminMetaHash: '15vp1i4',
+  adminMetaHash: '1grf1qj',
   adminConfig: adminConfig,
   apiPath: '/api/graphql',
 });

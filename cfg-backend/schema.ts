@@ -1,6 +1,7 @@
 import { list } from '@keystone-next/keystone';
 import { select, relationship, text, timestamp } from '@keystone-next/keystone/fields';
 
+
 export const lists = {
   Post: list({
     fields: {
@@ -13,7 +14,8 @@ export const lists = {
         ],
       }),
       image: text({ validation: { isRequired: true } }),
-      content: text(),
+      intro: text(),
+      content: relationship({ ref: 'Paragraph', many: true}),
       publishDate: timestamp(),
       author: relationship({ ref: 'Author.posts', many: false }),
     },
@@ -25,4 +27,12 @@ export const lists = {
       posts: relationship({ ref: 'Post.author', many: true }),
     },
   }),
+  Paragraph: list ({
+    fields: {
+      title: text({ validation: { isRequired: true } }),
+      content: text({
+        ui: {displayMode: 'textarea'}
+      }),
+    }
+  })
 };
