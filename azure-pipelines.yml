@@ -5,6 +5,7 @@
 
 trigger:
 - develop
+- master
 
 pool:
   vmImage: ubuntu-latest
@@ -20,7 +21,7 @@ steps:
     npm install
     ng build --prod
   displayName: 'npm install and build'
-  workingDirectory: '$(ngWorkingDir)'
+  workingDirectory: $(ng-working-dir)
   
 
     
