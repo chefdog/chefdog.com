@@ -24,4 +24,10 @@ steps:
   workingDirectory: $(ng-working-dir)
   
 
+- script: |
+    npm install
+    npm run build
+  displayName: 'npm install and build keystone cms'
+  workingDirectory: $(keystone-working-dir)
+  
     
