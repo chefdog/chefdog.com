@@ -29,5 +29,10 @@ steps:
     npm run build
   displayName: 'npm install and build keystone cms'
   workingDirectory: $(keystone-working-dir)
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: $(ng-working-dir)/dist
+    ArtifactName: angularBuildArtifact
   
     
