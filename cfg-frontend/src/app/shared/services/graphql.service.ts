@@ -13,16 +13,24 @@ export class GraphqlService {
     return this.apollo.query({
       query: gql`query Query {
         posts {
-          title,
-          image,
-          intro,
-          publishDate,
+          id
+          title
+          status
+          image {
+            ref
+            id
+            src
+          }
+          content {
+            document
+          }
+          publishDate
           author {
-            id,
             name
           }
-          status
-          id
+          tags {
+            name
+          }
         }
       }`
     });      

@@ -26,6 +26,7 @@ import {
   timestamp,
   select,
   float,
+  image,
 } from '@keystone-next/keystone/fields';
 // The document field is a more complicated field, so it's in its own package
 // Keystone aims to have all the base field types, but you can make your own
@@ -67,7 +68,7 @@ export const lists = {
   // so we have all the info we need for displaying posts.
   Post: list({
     fields: {
-      title: text(),
+      title: text(),      
       // Having the status here will make it easy for us to choose whether to display
       // posts on a live site.
       status: select({
@@ -82,6 +83,7 @@ export const lists = {
           displayMode: 'segmented-control',
         },
       }),
+      image: image(),
       // The document field can be used for making highly editable content. Check out our
       // guide on the document field https://keystonejs.com/docs/guides/document-fields#how-to-use-document-fields
       // for more information
@@ -128,7 +130,7 @@ export const lists = {
   Article: list({
     fields: { 
       title: text(), 
-      intro: text(),
+      intro: text(),      
       publishDate: timestamp(),
       status: select({
         options: [
@@ -145,9 +147,8 @@ export const lists = {
       articleType: select({
         type: 'enum',
         options: [
-          { label: 'wave surf', value: 'wavesurf' },
-          { label: 'artificial wave', value: 'awave' },
-          { label: 'wind surf', value: 'windsurf' },
+          { label: 'Coffee review', value: 'coffee' },
+          { label: 'Tech article', value: 'tech' },
         ],
       }),
       rating: select({

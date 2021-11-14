@@ -1,4 +1,5 @@
 export * from './author.model';
+export * from './image.model';
 export * from './posts-data.model';
 export * from './post-data.model';
 export * from './post.model';
