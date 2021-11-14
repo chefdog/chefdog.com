@@ -1,0 +1,31 @@
+{
+    "MetaData": {
+        "Id": 1,
+        "ArticleId": 1,
+        "PublishDate": "2020-05-01T14:24:23.0340065+02:00",
+        "Author": "M.A. van Zuijlen",
+        "ArticleType": 0,
+        "ArticleSubType": 2,
+        "Rating": 0,
+        "ReadMore": null,
+        "Tags": [
+            "coffee",
+            "bocca"
+        ],
+        "LastModified": "0001-01-01T00:00:00"
+    },
+    "Title": "Monte Alto, Giraffe koffie",
+    "Description": "In mijn koffie lab is het vooral koffie van Bocca wat ik zelf drink. Maar er zijn in Nederland zoveel zulke goede roasters, dus nu een koffie van Giraffe Koffie in de maler. Ik had een proefpakket espresso single origins aangeschaft. Hierin zitten dan 3 verschillende bonen en ik ben begonnen deze week met Monte Alto.",
+    "Image": null,
+    "Paragraphs": [
+        {
+            "Title": null,
+            "Content": "Ik ken Giraffe al wat langer, een aantal jaar geleden had ik al koffie van Giraffe online aangeschaft. Tot mijn grote verbazing werd de koffie afgeleverd door een van de eigenaren. Hij kwam met veel enthausiasme uitleggen dat ze niet zomaar hun bonen wilden verkopen, zonder dat iemand daar dezelfde pasie voor had en zijn mooie product op een verkeerde manier gingen gebruiken. Dus zei, kom binnen en kan je zien wat ik heb staan. Hij was gerust gesteld.",
+            "ArticleId": 0,
+            "Id": 0,
+            "UserId": 0
+        }
+    ],
+    "Id": 2,
+    "UserId": 1
+}

@@ -41,7 +41,8 @@ https://themeforest.net/item/dblog-modern-personal-portfolio-and-blog-html-templ
 
 ### config
 
-CORS rules are placed in the keystone config (keystone.ts), change these according to your own hosting platform.
+1. CORS rules are placed in the keystone config (keystone.ts), change these according to your own hosting platform.
+2. Image upload handling (I use the image field type in post and articles), is in keystone config.
 
 
 ### Base Project - Blog

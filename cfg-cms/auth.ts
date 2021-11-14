@@ -22,7 +22,7 @@ if (!sessionSecret) {
       'The SESSION_SECRET environment variable must be set in production'
     );
   } else {
-    sessionSecret = '-- DEV COOKIE SECRET; CHANGE ME --';
+    sessionSecret = '-- 1Ch#fD@g2411 --';
   }
 }
 

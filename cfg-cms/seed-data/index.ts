@@ -31,6 +31,8 @@ export async function insertSeedData(context: KeystoneContext) {
         await createAuthor(author);
     }
 
+    
+
     console.log(`✅ Seed data inserted`);
     console.log(`👋 Please start the process with \`yarn dev\` or \`npm run dev\``);
     process.exit();
