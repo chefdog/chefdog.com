@@ -30,9 +30,16 @@ steps:
   displayName: 'npm install and build keystone cms'
   workingDirectory: $(keystone-working-dir)
 
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: '$(ng-working-dir)/dist'
+    includeRootFolder: true
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    replaceExistingArchive: true
+
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: $(ng-working-dir)/dist
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
     ArtifactName: angularBuildArtifact
   
-    
