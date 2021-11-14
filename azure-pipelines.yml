@@ -36,13 +36,13 @@ steps:
     rootFolderOrFile: '$(ng-working-dir)/dist'
     includeRootFolder: true
     archiveType: 'zip'
-    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/ng.zip'
     replaceExistingArchive: true
     
 - task: PublishBuildArtifacts@1
   displayName: 'Publish build angular app'
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/ng.zip'
     ArtifactName: angularBuildArtifact
 
 - task: ArchiveFiles@2
@@ -51,13 +51,13 @@ steps:
     rootFolderOrFile: '$(keystone-working-dir)/dist'
     includeRootFolder: true
     archiveType: 'zip'
-    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId)ks.zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/ks.zip'
     replaceExistingArchive: true
     
 - task: PublishBuildArtifacts@1
   displayName: 'Publish build keystone app'
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId)ks.zip'
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/ks.zip'
     ArtifactName: keystoneBuildArtifact
 
 
