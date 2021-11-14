@@ -31,14 +31,17 @@ steps:
   workingDirectory: $(keystone-working-dir)
 
 - task: ArchiveFiles@2
+  displayName: 'Archive angular app'
   inputs:
     rootFolderOrFile: '$(ng-working-dir)/dist'
     includeRootFolder: true
     archiveType: 'zip'
     archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
     replaceExistingArchive: true
+    
 
 - task: PublishBuildArtifacts@1
+  displayName: 'Publish build angular app'
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
     ArtifactName: angularBuildArtifact
