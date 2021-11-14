@@ -39,10 +39,26 @@ steps:
     archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
     replaceExistingArchive: true
     
-
 - task: PublishBuildArtifacts@1
   displayName: 'Publish build angular app'
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
     ArtifactName: angularBuildArtifact
+
+- task: ArchiveFiles@2
+  displayName: 'Archive keystone app'
+  inputs:
+    rootFolderOrFile: '$(keystone-working-dir)/dist'
+    includeRootFolder: true
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId)ks.zip'
+    replaceExistingArchive: true
+    
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish build keystone app'
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId)ks.zip'
+    ArtifactName: keystoneBuildArtifact
+
+
   
