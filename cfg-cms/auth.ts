@@ -23,7 +23,7 @@ if (!sessionSecret) {
     //   'The SESSION_SECRET environment variable must be set in production'
     // );
   } else {
-    sessionSecret = '-- 1Ch#fD@g2411 --';
+    sessionSecret = '05BFFF91-1902-43BE-B3A3-4CAB2D339007';
   }
 }
 
