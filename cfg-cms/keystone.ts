@@ -15,7 +15,6 @@ import { lists } from './schema';
 import { withAuth, session } from './auth';
 
 import { insertSeedData } from './seed-data';
-import { statelessSessions } from '@keystone-next/keystone/session';
 
 export default withAuth(
   // Using the config function helps typescript guide you to the available options.
@@ -37,7 +36,7 @@ export default withAuth(
         baseUrl: '/images',
       },
     },
-    session,
+    session: session,
     // This config allows us to set up features of the Admin UI https://keystonejs.com/docs/apis/config#ui
     ui: {
       // For our starter, we check that someone has session data before letting them see the Admin UI.
