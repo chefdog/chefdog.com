@@ -6,7 +6,7 @@
     "dev": "keystone-next dev",
     "start": "keystone-next start",
     "build": "keystone-next build",
-    "deploy": "keystone-next build && keystone-next deploy",
+    "deploy": "keystone-next build && keystone-next prisma migrate deploy",
     "seed-data": "keystone-next --seed-data",
     "postinstall": "keystone-next postinstall"
   },
