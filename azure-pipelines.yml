@@ -48,7 +48,7 @@ steps:
 - task: ArchiveFiles@2
   displayName: 'Archive keystone app'
   inputs:
-    rootFolderOrFile: '$(keystone-working-dir)/dist'
+    rootFolderOrFile: '$(keystone-working-dir)'
     includeRootFolder: true
     archiveType: 'zip'
     archiveFile: '$(Build.ArtifactStagingDirectory)/ks.zip'
