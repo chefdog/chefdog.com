@@ -4,6 +4,14 @@
 Chefdog.com solution consists of two project; cfg-app and cfg-backend.
 The frontend is an angular 12 project, called cfg-app and cfg-backend is based on keystoneJs CMS.
 
+!!! WARNING !!!
+This repository is under development and will not run yet.
+
+## Legal issues
+
+The frontend styling template cannot be used. The frontend styling template has been build by
+Damian Komoński (komon.ski). All those files are located under assets.
+
 ## Instructions
 
 To run this project:
