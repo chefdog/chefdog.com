@@ -8,6 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
+  "build:docker": "ng build -prod outputPath=../../usr/share/nginx/html/",
   "private": true,
   "dependencies": {
     "@angular/animations": "~12.2.0",
