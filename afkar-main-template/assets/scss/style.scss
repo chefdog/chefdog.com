@@ -1,0 +1,75 @@
+/* table of content - start
+==================================================================================================== */
+/* 
+
+Project Name 	:  Afkar - HTML Template
+File 			    :  CSS Base
+Version 		  :  1.1.0
+Last change 	:  29 April 2020
+Author 			  :  creative-wp -->> (https://themeforest.net/user/creative-wp)
+Developer:		:  Rakibul Islam Dewan -->> (dj.rakibul690@gmail.com)
+
+================================================== 
+
+# All Default Sections
+  01 - header
+  02 - footer
+  03 - breadcrumb
+  04 - sidebar
+
+  05 - partners
+  06 - funfact
+  07 - calltoaction
+  08 - policy
+  09 - pricing
+
+# All Inner Pages
+  10 - about
+  11 - team
+  12 - testimonial
+  13 - services
+  14 - blogs
+  15 - portfolio
+  16 - shop
+  17 - details
+  18 - contact
+  19 - cart
+  20 - error
+  21 - comingsoon
+
+# All Home Pages
+  22 - home page
+
+*/
+/* table of content - end
+==================================================================================================== */
+@import "variable";
+@import "reset";
+
+@import "header";
+@import "footer";
+@import "breadcrumb";
+@import "sidebar";
+
+@import "partners";
+@import "funfact";
+@import "calltoaction";
+@import "policy";
+@import "pricing";
+
+@import "about";
+@import "team";
+@import "testimonial";
+@import "services";
+@import "blogs";
+@import "portfolio";
+@import "shop";
+@import "details";
+@import "contact";
+@import "cart";
+@import "error";
+@import "comingsoon";
+
+@import "home";
+
+@import "responsive";
