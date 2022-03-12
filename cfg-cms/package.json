@@ -10,6 +10,7 @@
     "seed-data": "keystone-next --seed-data",
     "postinstall": "keystone-next postinstall"
   },
+  "build:docker": "keystone-next build && keystone-next prisma migrate deploy /cfg-cmd/ --outputPath=../../usr/share/nginx/html/cfg-cms",
   "dependencies": {
     "@keystone-next/auth": "^34.0.0",
     "@keystone-next/fields-document": "^11.0.0",
