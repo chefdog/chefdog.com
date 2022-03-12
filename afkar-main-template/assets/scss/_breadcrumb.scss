@@ -1,0 +1,44 @@
+/* 03 - breadcrumb - start
+==================================================================================================== */
+.breadcrumb-section {
+
+	.page-title {
+		font-size: 48px;
+		font-weight: 600;
+	}
+	.breadcrumb-nev {
+		>ul {
+			>li {
+				font-weight: 500;
+				margin-right: 35px;
+				color: $default-color;
+				&:last-child {
+					margin-right: 0px !important;
+				}
+				>a {
+					font-weight: 500;
+					color: $default-black;
+				}
+			}
+		}
+	}
+
+	&.text-white {
+		.page-title {
+			color: #ffffff;
+		}
+		.breadcrumb-nev {
+			>ul {
+				>li {
+					color: #bababa;
+					>a {
+						color: #ffffff;
+					}
+				}
+			}
+		}
+	}
+
+}
+/* 03 - breadcrumb - end
+==================================================================================================== */

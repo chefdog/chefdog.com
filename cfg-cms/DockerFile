@@ -1,7 +1,0 @@
-FROM node:alpine as cfg-cms
-RUN apk update && apk add --no-cache make git
-WORKDIR /app
-COPY cfg-cms/package*.json /app/
-RUN npm install 
-COPY cfg-cms /app
-EXPOSE 3000

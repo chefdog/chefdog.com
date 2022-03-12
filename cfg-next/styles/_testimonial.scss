@@ -1,0 +1,79 @@
+/* 12 - testimonial page - start
+==================================================================================================== */
+
+/* testimonial full width - start */
+.testimonial-fullwidth {
+	.person-image {
+		width: 90px;
+		height: 90px;
+		overflow: hidden;
+		margin-bottom: 40px;
+		border-radius: 100%;
+		display: inline-block;
+	}
+	p {
+		font-size: 24px;
+		color: $default-black;
+		font-family: $heading-font;
+	}
+}
+
+.testimonial-carousel-1 {
+	.owl-dots {
+		margin-top: 40px !important;
+	}
+}
+
+.bg-default-black.text-white {
+	.testimonial-fullwidth {
+		p {
+			color: #ffffff;
+		}
+	}
+}
+/* testimonial full width - end */
+
+
+/* testimonial boxed - start */
+.testimonial-boxed {
+	z-index: 1;
+	padding: 40px;
+	position: relative;
+	background-color: #ffffff;
+	border: 1px solid $deep-gray;
+	.quote-icon {
+		left: 0px;
+		bottom: 0px;
+		z-index: -1;
+		opacity: .15;
+		max-width: 180px;
+		position: absolute;
+	}
+	.person-image {
+		float: left;
+		width: 100px;
+		height: 100px;
+		border-radius: 100%;
+	}
+	.person-comment {
+		display: table;
+		padding-left: 100px;
+		p {
+			font-size: 15px;
+		}
+
+		.person-name {
+			font-size: 16px;
+			font-weight: 700;
+			margin-bottom: 3px;
+		}
+		.person-title {
+			display: block;
+			font-size: 13px;
+		}
+	}
+}
+/* testimonial boxed - end */
+
+/* 12 - testimonial page - end
+==================================================================================================== */

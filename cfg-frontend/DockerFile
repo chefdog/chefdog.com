@@ -1,8 +1,0 @@
-FROM node:alpine as cfg-frontend
-RUN apk update && apk add --no-cache make git
-WORKDIR /app
-COPY cfg-frontend/package*.json /app/
-RUN npm install @angular/cli@12.2.11 -g \ 
-    && npm ci
-COPY cfg-frontend /app
-EXPOSE 4200

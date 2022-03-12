@@ -1,0 +1,55 @@
+/* 18 - contact page - start
+==================================================================================================== */
+
+/* map section - start */
+.map-section {
+	/*
+	.google-map {
+		height: 500px;
+	}
+	*/
+
+	#mapBox {
+		height: 500px;
+	}
+}
+/* map section - end */
+
+
+/* contact section - start */
+.contact-section {
+
+	&.bg-map {
+		background-size: auto;
+		background-position: center center;
+		.form-item {
+			input {
+				background: transparent;
+			}
+		}
+	}
+
+	.submit-btn-icon {
+		line-height: 1;
+		font-size: 42px;
+		color: $default-black;
+	}
+
+	&.text-white {
+		.form-item {
+			input {
+				color: #ffffff;
+				background-color: transparent;
+				border-bottom: 1px solid #ffffff;
+			}
+		}
+
+		.submit-btn-icon {
+			color: #ffffff;
+		}
+	}
+}
+/* contact section - end */
+
+/* 18 - contact page - end
+==================================================================================================== */
