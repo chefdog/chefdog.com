@@ -1,0 +1,248 @@
+/* 02 - footer - start
+==================================================================================================== */
+.footer-section {
+
+	.brand-logo {
+		>a {
+			max-width: 100px;
+			display: inline-block;
+		}
+	}
+
+	.useful-links {
+		>ul {
+			>li {
+				margin-bottom: 10px;
+				&:last-child {
+					margin-bottom: 0px !important;
+				}
+				.admin-name {
+					display: block;
+					font-size: 21px;
+					font-weight: 700;
+				}
+				>a {
+					font-weight: 500;
+					position: relative;
+					color: $default-black;
+					&:before {
+						width: 0px;
+						left: auto;
+						right: 0px;
+						bottom: 0px;
+						height: 1px;
+						content: "";
+						position: absolute;
+						background: #000000;
+						transition: width 0.3s linear;
+					}
+					&:hover {
+						&:before {
+							left: 0px;
+							width: 100%;
+							right: auto;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.instagram-shoots,
+	.instagram-shoots-2 {
+		>ul {
+			>li {
+				>a {
+					width: 100%;
+					height: 100%;
+					display: block;
+					overflow: hidden;
+					position: relative;
+					&:before {
+						top: 50%;
+						left: 50%;
+						width: 0px;
+						z-index: 1;
+						height: 90%;
+						content: '';
+						position: absolute;
+						background-color: #000000;
+						transform: translate(-50%, -50%);
+						transition: all 0.3s ease-in-out;
+					}
+					&:after {
+						top: 50%;
+						left: 50%;
+						z-index: 2;
+						opacity: 0;
+						color: #ffffff;
+						font-size: 26px;
+						content: '\f292';
+						font-weight: 400;
+						position: absolute;
+						font-family: 'icomoon';
+						transform: translate(-50%, -30%);
+						transition: all 0.3s ease-in-out;
+					}
+					&:hover {
+						&:before {
+							width: 90%;
+						}
+						&:after {
+							opacity: 1;
+							transition-delay: .05s;
+							transform: translate(-50%, -50%);
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.instagram-shoots {
+		>ul {
+			>li {
+				width: 80px;
+				height: 80px;
+				overflow: hidden;
+				margin-right: 8px;
+				text-align: center;
+				&:last-child {
+					margin-right: 0px !important;
+				}
+				&:first-child {
+					margin-right: 30px !important;
+				}
+				.icon {
+					width: 100%;
+					height: 100%;
+					display: block;
+					font-size: 26px;
+					text-align: right;
+					line-height: 80px;
+					color: $default-black;
+				}
+				>a {
+					&:after {
+						font-size: 20px;
+					}
+				}
+			}
+		}
+	}
+
+	.instagram-shoots-2 {
+		>ul {
+			>li {
+				width: 135px;
+				height: 135px;
+				margin-right: 10px;
+				&:last-child {
+					margin-right: 0px !important;
+				}
+			}
+		}
+
+		.list-title {
+			width: 100%;
+			display: table;
+			font-size: 14px;
+			font-weight: 500;
+			margin-top: 60px;
+			color: $default-black;
+		}
+	}
+
+	.payment-card {
+		>ul {
+			>li {
+				margin-right: 5px;
+				&:last-child {
+					margin-right: 0px !important;
+				}
+				>a {
+					display: block;
+					max-width: 33px;
+				}
+			}
+		}
+	}
+
+	.form-group {
+		margin: 0px;
+		>ul {
+			>li {
+				margin-right: 20px;
+				&:last-child {
+					margin-right: 0px !important;
+				}
+			}
+		}
+	}
+
+	.form-item {
+		select {
+			margin: 0px;
+			padding: 0px;
+			border: none;
+			outline: none;
+			color: #000000;
+			cursor: pointer;
+			font-weight: 600;
+			letter-spacing: 1px;
+			text-transform: uppercase;
+		}
+	}
+
+	&.text-white {
+
+		.useful-links {
+			>ul {
+				>li {
+					>a {
+						color: #ffffff;
+						&:before {
+							background-color: #ffffff;
+						}
+					}
+				}
+			}
+		}
+
+		.social-links-text {
+			>ul {
+				>li {
+					&:after {
+						background-color: rgba(255, 255, 255, 0.6);
+					}
+					>a {
+						color: #ffffff;
+						&:before {
+							background-color: #ffffff;
+						}
+					}
+				}
+			}
+		}
+
+		.instagram-shoots {
+			>ul {
+				>li {
+					.icon {
+						color: #ffffff;
+					}
+				}
+			}
+		}
+
+		.instagram-shoots-2 {
+			.list-title {
+				color: #ffffff;
+			}
+		}
+
+	}
+
+}
+/* 02 - footer - end
+==================================================================================================== */
