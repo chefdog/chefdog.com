@@ -3,7 +3,7 @@ import bg from '../public/images/backgrounds/bg_4.jpg'
 
 const Breadcrumb = () => {
     return (
-        <section id="breadcrumb-section" className="breadcrumb-section sec-ptb-100 text-center text-white clearfix" data-background="/public/images/backgrounds/bg_4.jpg">
+        <section id="breadcrumb-section" className="breadcrumb-section sec-ptb-100 text-center text-white clearfix" data-background={bg.src}>
             <div className="container">
                 <h2 className="page-title mb-30">Recent Stories</h2>
                 <div className="breadcrumb-nev ul-li-center clearfix">
