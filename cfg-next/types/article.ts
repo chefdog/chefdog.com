@@ -6,3 +6,5 @@ type Article = {
     image: string
     author: string
 }
+
+export default Article
