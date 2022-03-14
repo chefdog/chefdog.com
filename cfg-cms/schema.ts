@@ -69,6 +69,7 @@ export const lists = {
   Post: list({
     fields: {
       title: text(),      
+      introduction: text(), 
       // Having the status here will make it easy for us to choose whether to display
       // posts on a live site.
       status: select({
@@ -130,7 +131,8 @@ export const lists = {
   Article: list({
     fields: { 
       title: text(), 
-      intro: text(),      
+      introduction: text(), 
+      image: image(),     
       publishDate: timestamp(),
       status: select({
         options: [
@@ -183,6 +185,7 @@ export const lists = {
     },
     fields: { 
       title: text(), 
+      image: image(),
       content: document({
         formatting: true,
         layouts: [

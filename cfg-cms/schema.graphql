@@ -247,6 +247,7 @@ input ArticleRelateToManyForCreateInput {
 type Post {
   id: ID!
   title: String
+  introduction: String
   status: String
   image: ImageFieldOutput
   content: Post_content_Document
@@ -289,22 +290,13 @@ input PostWhereUniqueInput {
   id: ID
 }
 
-type LocalImageFieldOutput implements ImageFieldOutput {
-  id: ID!
-  filesize: Int!
-  width: Int!
-  height: Int!
-  extension: ImageExtension!
-  ref: String!
-  src: String!
-}
-
 input PostWhereInput {
   AND: [PostWhereInput!]
   OR: [PostWhereInput!]
   NOT: [PostWhereInput!]
   id: IDFilter
   title: StringFilter
+  introduction: StringFilter
   status: StringNullableFilter
   publishDate: DateTimeNullableFilter
   author: UserWhereInput
@@ -359,12 +351,14 @@ input TagManyRelationFilter {
 input PostOrderByInput {
   id: OrderDirection
   title: OrderDirection
+  introduction: OrderDirection
   status: OrderDirection
   publishDate: OrderDirection
 }
 
 input PostUpdateInput {
   title: String
+  introduction: String
   status: String
   image: ImageFieldInput
   content: JSON
@@ -403,6 +397,7 @@ input PostUpdateArgs {
 
 input PostCreateInput {
   title: String
+  introduction: String
   status: String
   image: ImageFieldInput
   content: JSON
@@ -424,7 +419,8 @@ input TagRelateToManyForCreateInput {
 type Article {
   id: ID!
   title: String
-  intro: String
+  introduction: String
+  image: ImageFieldOutput
   publishDate: DateTime
   status: String
   articleType: ArticleArticleTypeType
@@ -469,7 +465,7 @@ input ArticleWhereInput {
   NOT: [ArticleWhereInput!]
   id: IDFilter
   title: StringFilter
-  intro: StringFilter
+  introduction: StringFilter
   publishDate: DateTimeNullableFilter
   status: StringNullableFilter
   articleType: ArticleArticleTypeTypeNullableFilter
@@ -510,7 +506,7 @@ input ReviewItemManyRelationFilter {
 input ArticleOrderByInput {
   id: OrderDirection
   title: OrderDirection
-  intro: OrderDirection
+  introduction: OrderDirection
   publishDate: OrderDirection
   status: OrderDirection
   articleType: OrderDirection
@@ -519,7 +515,8 @@ input ArticleOrderByInput {
 
 input ArticleUpdateInput {
   title: String
-  intro: String
+  introduction: String
+  image: ImageFieldInput
   publishDate: DateTime
   status: String
   articleType: ArticleArticleTypeType
@@ -564,7 +561,8 @@ input ArticleUpdateArgs {
 
 input ArticleCreateInput {
   title: String
-  intro: String
+  introduction: String
+  image: ImageFieldInput
   publishDate: DateTime
   status: String
   articleType: ArticleArticleTypeType
@@ -599,6 +597,7 @@ input CompanyRelateToOneForCreateInput {
 type Paragraph {
   id: ID!
   title: String
+  image: ImageFieldOutput
   content: Paragraph_content_Document
   articles: Article
 }
@@ -609,6 +608,16 @@ type Paragraph_content_Document {
 
 input ParagraphWhereUniqueInput {
   id: ID
+}
+
+type LocalImageFieldOutput implements ImageFieldOutput {
+  id: ID!
+  filesize: Int!
+  width: Int!
+  height: Int!
+  extension: ImageExtension!
+  ref: String!
+  src: String!
 }
 
 input ParagraphWhereInput {
@@ -627,6 +636,7 @@ input ParagraphOrderByInput {
 
 input ParagraphUpdateInput {
   title: String
+  image: ImageFieldInput
   content: JSON
   articles: ArticleRelateToOneForUpdateInput
 }
@@ -644,6 +654,7 @@ input ParagraphUpdateArgs {
 
 input ParagraphCreateInput {
   title: String
+  image: ImageFieldInput
   content: JSON
   articles: ArticleRelateToOneForCreateInput
 }

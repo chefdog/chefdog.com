@@ -7,6 +7,7 @@ import Header from '../components/header'
 
 import styles from '../styles/Home.module.css'
 import ArticleList from '../components/article-list'
+import PostList from '../components/post-list'
 
 const Home: NextPage = () => {
   
@@ -22,8 +23,16 @@ const Home: NextPage = () => {
       <Header></Header>
 
       <Breadcrumb></Breadcrumb>
-
-      <ArticleList></ArticleList>     
+      <section id="blog-section" className="blog-section sec-ptb-100 clearfix">
+        <div className='container'>
+          <div className="row justify-content-lg-between justify-content-md-center justify-content-sm-center">
+            <div className="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+              <PostList></PostList>
+              <ArticleList></ArticleList>
+            </div>
+          </div>
+        </div> 
+      </section>
       
       <Footer></Footer>
     </>

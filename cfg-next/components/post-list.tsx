@@ -1,33 +1,30 @@
 
 import { gql, useQuery } from '@apollo/client';
-import Image from 'next/image'
 import Article from '../types/article'
 
-
-const ARTICLES_QUERY = gql`
-query QueryArticles($take: Int, $orderBy: [ArticleOrderByInput!]!) {
-    articles(take: $take, orderBy: $orderBy) {
-      title
-      introduction
-      image {
-        ... on LocalImageFieldOutput {
-          src
-          height
-          width
-        }
-      }
-      publishDate
-      articleType
-      rating
+const POST_QUERY = gql`
+query QueryPosts($take: Int, $orderBy: [PostOrderByInput!]!) {
+    posts(take: $take, orderBy: $orderBy) {
+      id,
+      title,
+      introduction,    
+      publishDate,
       author {
+        id,
         name
+      }
+      status
+      image {
+        src,
+        width,
+        height
       }
     }
   }`;
 
-const ArticleList = () => {
+const PostList = () => {
 
-    const { data, loading, error, fetchMore } = useQuery(ARTICLES_QUERY, {
+    const { data, loading, error, fetchMore } = useQuery(POST_QUERY, {
         variables: { take:3, "orderBy": [
             {
               "id": "desc"
@@ -42,7 +39,7 @@ const ArticleList = () => {
  
     return (
         <>
-        {data?.articles.map((post: Article, i:number) => (
+        {data?.posts.map((post: Article, i:number) => (
             <div className="blog-list clearfix" data-aos="fade-up" data-aos-delay="100" key={i}>
                 <a href="#!" className="item-image">
                     <img src={process.env.NEXT_PUBLIC_CMS_API+post.image.src} />
@@ -71,4 +68,4 @@ const ArticleList = () => {
     )
 }
 
-export default ArticleList
+export default PostList

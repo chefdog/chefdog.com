@@ -24,6 +24,7 @@ model User {
 model Post {
   id              String    @id @default(cuid())
   title           String    @default("")
+  introduction    String    @default("")
   status          String?   @default("draft")
   image_filesize  Int?
   image_extension String?
@@ -41,21 +42,27 @@ model Post {
 }
 
 model Article {
-  id          String       @id @default(cuid())
-  title       String       @default("")
-  intro       String       @default("")
-  publishDate DateTime?
-  status      String?      @default("draft")
-  articleType String?
-  rating      String?
-  paragraphs  Paragraph[]  @relation("Paragraph_articles")
-  location    Location?    @relation("Article_location", fields: [locationId], references: [id])
-  locationId  String?      @map("location")
-  reviewItems ReviewItem[] @relation("Article_reviewItems_ReviewItem_items")
-  company     Company?     @relation("Article_company", fields: [companyId], references: [id])
-  companyId   String?      @map("company")
-  author      User?        @relation("Article_author", fields: [authorId], references: [id])
-  authorId    String?      @map("author")
+  id              String       @id @default(cuid())
+  title           String       @default("")
+  introduction    String       @default("")
+  image_filesize  Int?
+  image_extension String?
+  image_width     Int?
+  image_height    Int?
+  image_mode      String?
+  image_id        String?
+  publishDate     DateTime?
+  status          String?      @default("draft")
+  articleType     String?
+  rating          String?
+  paragraphs      Paragraph[]  @relation("Paragraph_articles")
+  location        Location?    @relation("Article_location", fields: [locationId], references: [id])
+  locationId      String?      @map("location")
+  reviewItems     ReviewItem[] @relation("Article_reviewItems_ReviewItem_items")
+  company         Company?     @relation("Article_company", fields: [companyId], references: [id])
+  companyId       String?      @map("company")
+  author          User?        @relation("Article_author", fields: [authorId], references: [id])
+  authorId        String?      @map("author")
 
   @@index([locationId])
   @@index([companyId])
@@ -63,11 +70,17 @@ model Article {
 }
 
 model Paragraph {
-  id         String   @id @default(cuid())
-  title      String   @default("")
-  content    String   @default("[{\"type\":\"paragraph\",\"children\":[{\"text\":\"\"}]}]")
-  articles   Article? @relation("Paragraph_articles", fields: [articlesId], references: [id])
-  articlesId String?  @map("articles")
+  id              String   @id @default(cuid())
+  title           String   @default("")
+  image_filesize  Int?
+  image_extension String?
+  image_width     Int?
+  image_height    Int?
+  image_mode      String?
+  image_id        String?
+  content         String   @default("[{\"type\":\"paragraph\",\"children\":[{\"text\":\"\"}]}]")
+  articles        Article? @relation("Paragraph_articles", fields: [articlesId], references: [id])
+  articlesId      String?  @map("articles")
 
   @@index([articlesId])
 }
