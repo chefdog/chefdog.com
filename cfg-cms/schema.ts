@@ -221,7 +221,7 @@ export const lists = {
   }),
   Tag: list({
     ui: {
-      isHidden: true,
+      isHidden: false,
     },
     fields: {
       name: text(),

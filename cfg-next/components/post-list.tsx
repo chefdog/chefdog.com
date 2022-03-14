@@ -1,5 +1,6 @@
 
 import { gql, useQuery } from '@apollo/client';
+import Link from 'next/link';
 import Article from '../types/article'
 
 const POST_QUERY = gql`
@@ -41,14 +42,16 @@ const PostList = () => {
         <>
         {data?.posts.map((post: Article, i:number) => (
             <div className="blog-list clearfix" data-aos="fade-up" data-aos-delay="100" key={i}>
-                <a href="#!" className="item-image">
+                <Link href={`/blog/${encodeURIComponent(post.id)}`}>
+                  <a className="item-image">
                     <img src={process.env.NEXT_PUBLIC_CMS_API+post.image.src} />
-                </a>
+                  </a>
+                </Link>
                 <div className="item-content">
                     <h3 className="item-title">
-                        <a href="#!">
-                            {post.title}
-                        </a>
+                        <Link href={`/blog/${encodeURIComponent(post.id)}`}>
+                          <a>{post.title}</a>
+                        </Link>
                     </h3>
                     <div className="post-meta ul-li mb-30 clearfix">
                         <ul className="clearfix">
