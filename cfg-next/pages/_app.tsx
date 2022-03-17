@@ -5,7 +5,6 @@ import '../styles/style.scss'
 
 
 function MyApp({ Component, pageProps }: AppProps) {
-  //return <Component {...pageProps} />
   return <ApolloProvider client={Client}>
       <Component {...pageProps} />
   </ApolloProvider>

@@ -4,7 +4,8 @@ type Article = {
     introduction: string
     content: string
     image: string
-    author: string
+    author: string,
+    slug: string
 }
 
 export default Article

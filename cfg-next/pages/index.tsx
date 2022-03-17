@@ -4,15 +4,12 @@ import Head from 'next/head'
 import Breadcrumb from '../components/breadcrumb'
 import Footer from '../components/footer'
 import Header from '../components/header'
-
-import styles from '../styles/Home.module.css'
 import ArticleList from '../components/article-list'
 import PostList from '../components/post-list'
 import TagList from '../components/tag-list'
 
 const Home: NextPage = () => {
   
-
   return (
     <>
       <Head>
