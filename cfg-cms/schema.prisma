@@ -45,7 +45,7 @@ model Post {
 model Article {
   id              String       @id @default(cuid())
   title           String       @default("")
-  slug            String       @default("")
+  slug            String       @unique @default("")
   introduction    String       @default("")
   image_filesize  Int?
   image_extension String?

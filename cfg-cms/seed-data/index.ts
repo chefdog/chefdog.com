@@ -4,13 +4,19 @@ import { articles, authors } from './data';
 type AuthorProps = {
     name: string;
     email: string;
+    password: string;
 };
 
+type paragraphProps = {
+  title?: string;
+  content: string;
+}
 
 type ArticleProps = {
   title: string;
   slug: string;
   introduction: string;
+  paragraphs: Array<paragraphProps>;
 };
 
 export async function insertSeedData(context: KeystoneContext) {
@@ -42,7 +48,7 @@ export async function insertSeedData(context: KeystoneContext) {
       let article = null;
       try {
         article = await context.query.Article.findOne({
-          where: { email: articleData.title },
+          where: { title: articleData.title },
           query: 'id',
         });
       } catch (e) {}

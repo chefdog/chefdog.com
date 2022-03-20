@@ -132,7 +132,9 @@ export const lists = {
   Article: list({
     fields: { 
       title: text(), 
-      slug: text(), 
+      slug: text({
+        isIndexed: 'unique',
+      }), 
       introduction: text(), 
       image: image(),     
       publishDate: timestamp(),

@@ -9,6 +9,7 @@ const ARTICLES_QUERY = gql`
 query QueryArticles($take: Int, $orderBy: [ArticleOrderByInput!]!) {
     articles(take: $take, orderBy: $orderBy) {
       id,
+      slug,
       title
       introduction
       image {
@@ -30,11 +31,18 @@ query QueryArticles($take: Int, $orderBy: [ArticleOrderByInput!]!) {
 const ArticleList = () => {
 
     const { data, loading, error, fetchMore } = useQuery(ARTICLES_QUERY, {
-        variables: { take:3, "orderBy": [
+        variables: { 
+          take:3, 
+          "orderBy": [
             {
               "id": "desc"
             }
-          ]  
+          ],
+          "where": {
+            "status": {
+              "equals": "published"
+            }
+          }
         },
     });
     if (loading) return <p>Loading...</p>;
@@ -46,14 +54,14 @@ const ArticleList = () => {
         <>
         {data?.articles.map((post: Article, i:number) => (
             <div className="blog-list clearfix" data-aos="fade-up" data-aos-delay="100" key={i}>
-            <Link href={`/blog/${encodeURIComponent(post.id)}`}>
+            <Link as={`/articles/${post.slug}`} href="/articles/[slug]">
               <a className="item-image">
-                <img src={process.env.NEXT_PUBLIC_CMS_API + post.image.src} />
+                <img src={process.env.NEXT_PUBLIC_CMS_API + post.image?.src} />
               </a>
             </Link>
                 <div className="item-content">
                     <h3 className="item-title">
-                      <Link href={`/blog/${encodeURIComponent(post.id)}`}>
+                    <Link as={`/articles/${post.slug}`} href="/articles/[slug]">
                           <a>{post.title}</a>
                       </Link>
                     </h3>
@@ -61,7 +69,7 @@ const ArticleList = () => {
                         <ul className="clearfix">
                             <li>{post.publishDate}</li>
                             <li><a href="#!">
-                                {post.author.name}
+                                {post.author?.name}
                             </a></li>
                         </ul>
                     </div>
