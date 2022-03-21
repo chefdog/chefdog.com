@@ -1,28 +1,60 @@
-import { gql, useQuery } from "@apollo/client";
+import { gql } from "@apollo/client";
 
-export const articlesQuery = `query QueryArticles {
-    posts {
-      title,    
-      publishDate,
-      author {
-        id,
-        name
-      }
-      status
-      id
-    }
-  }`
-
-  
-const ARTICLES_ID_QUERY = gql`query queryArticle {
-  articles {
+export const ARTICLE_QUERY = gql`query queryArticle($where: ArticleWhereUniqueInput!) {
+  article(where: $where) {
     id
+    title
+    publishDate
+    slug
+    introduction
+    image {
+      src
+    }
+    rating
+    paragraphs {
+      id
+      title
+      image {
+        src
+      }
+      content {
+        document
+      }
+    }
+    author {
+      name
+    }
   }
 }`;
 
-export function getArticlesId(fields: string[] = []) {
-  console.log('--------');
-  const result = useQuery(ARTICLES_ID_QUERY);
-    
-  return result?.data;
-}
+
+export const ARTICLES_ID_QUERY = gql`query queryArticle {
+  articles {
+    id,
+    slug
+  }
+}`;
+
+
+export const ARTICLES_QUERY = gql`
+query QueryArticles($take: Int, $orderBy: [ArticleOrderByInput!]!) {
+    articles(take: $take, orderBy: $orderBy) {
+      id,
+      slug,
+      title
+      introduction
+      image {
+        ... on LocalImageFieldOutput {
+          src
+          height
+          width
+        }
+      }
+      publishDate
+      articleType
+      rating
+      author {
+        name
+      }
+    }
+  }`;

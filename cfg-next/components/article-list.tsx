@@ -1,32 +1,8 @@
 
-import { gql, useQuery } from '@apollo/client';
-import Image from 'next/image'
+import { useQuery } from '@apollo/client';
 import Link from 'next/link';
+import { ARTICLES_QUERY } from '../lib/queries';
 import Article from '../types/article'
-
-
-const ARTICLES_QUERY = gql`
-query QueryArticles($take: Int, $orderBy: [ArticleOrderByInput!]!) {
-    articles(take: $take, orderBy: $orderBy) {
-      id,
-      slug,
-      title
-      introduction
-      image {
-        ... on LocalImageFieldOutput {
-          src
-          height
-          width
-        }
-      }
-      publishDate
-      articleType
-      rating
-      author {
-        name
-      }
-    }
-  }`;
 
 const ArticleList = () => {
 

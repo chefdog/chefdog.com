@@ -1,7 +1,9 @@
 import Article from "./article"
 
 type Props = {
-    post: Article
+    post: { 
+        article:Article
+    },
     morePosts: Article[]
     preview?: boolean
 }

@@ -10,7 +10,7 @@ const Header = () => {
 
 					<div className="col-lg-4">
 						<div className="brand-logo">
-							<a href="index.html">
+							<a href="/">
 								<Image src={logo} alt="Chefdog logo"></Image>
 							</a>
 							<div className="mobile-menu-btns float-right ul-li-right">
@@ -37,7 +37,7 @@ const Header = () => {
 						<nav className="main-menu ul-li-right clearfix">
 							<ul className="clearfix">
 								<li>
-									<a href="#!">HOME</a>
+									<a href="/">HOME</a>
 								</li>
 								<li>
 									<a href="#!">ABOUT</a>

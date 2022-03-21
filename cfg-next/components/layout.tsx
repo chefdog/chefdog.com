@@ -1,5 +1,3 @@
-import styles from './layout.module.css'
-
 
 type Props = {
   preview?: boolean
@@ -7,7 +5,7 @@ type Props = {
 }
 
 const Layout = ({ preview, children }: Props) => {
-  return <div className={styles.container}>{children}</div>
+  return <div>{children}</div>
 }
   
 export default Layout
