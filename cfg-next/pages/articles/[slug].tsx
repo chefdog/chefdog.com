@@ -9,6 +9,7 @@ import Container from '../../components/container';
 import { ARTICLE_QUERY, ARTICLES_ID_QUERY } from '../../lib/queries';
 import Paragraph from '../../types/paragraph';
 import ArticleParagraph from '../../components/article-paragraph';
+import Footer from '../../components/footer';
 
 const ArticlePost = ({ post, morePosts, preview}: Props) => {
   const router = useRouter()
@@ -54,6 +55,7 @@ const ArticlePost = ({ post, morePosts, preview}: Props) => {
         </div>
       </section>
     </Container>
+    <Footer></Footer>
     </Layout>
      
   )
