@@ -26,6 +26,7 @@ model Post {
   title           String    @default("")
   slug            String    @default("")
   introduction    String    @default("")
+  postType        String?
   status          String?   @default("draft")
   image_filesize  Int?
   image_extension String?

@@ -71,6 +71,13 @@ export const lists = {
       title: text(),      
       slug: text(), 
       introduction: text(), 
+      postType: select({
+        type: 'enum',
+        options: [
+          { label: 'Project', value: 'project' },
+          { label: 'News', value: 'news' },
+        ],
+      }),
       // Having the status here will make it easy for us to choose whether to display
       // posts on a live site.
       status: select({

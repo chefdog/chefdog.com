@@ -42,6 +42,9 @@ const Header = () => {
 								<li>
 									<a href="#!">ABOUT</a>
 								</li>
+								<li>
+									<a href="/search">SEARCH</a>
+								</li>
 							</ul>
 						</nav>
 					</div>

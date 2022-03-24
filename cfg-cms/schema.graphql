@@ -249,6 +249,7 @@ type Post {
   title: String
   slug: String
   introduction: String
+  postType: PostPostTypeType
   status: String
   image: ImageFieldOutput
   content: Post_content_Document
@@ -261,6 +262,11 @@ type Post {
     skip: Int! = 0
   ): [Tag!]
   tagsCount(where: TagWhereInput! = {}): Int
+}
+
+enum PostPostTypeType {
+  project
+  news
 }
 
 interface ImageFieldOutput {
@@ -299,10 +305,18 @@ input PostWhereInput {
   title: StringFilter
   slug: StringFilter
   introduction: StringFilter
+  postType: PostPostTypeTypeNullableFilter
   status: StringNullableFilter
   publishDate: DateTimeNullableFilter
   author: UserWhereInput
   tags: TagManyRelationFilter
+}
+
+input PostPostTypeTypeNullableFilter {
+  equals: PostPostTypeType
+  in: [PostPostTypeType!]
+  notIn: [PostPostTypeType!]
+  not: PostPostTypeTypeNullableFilter
 }
 
 input StringNullableFilter {
@@ -355,6 +369,7 @@ input PostOrderByInput {
   title: OrderDirection
   slug: OrderDirection
   introduction: OrderDirection
+  postType: OrderDirection
   status: OrderDirection
   publishDate: OrderDirection
 }
@@ -363,6 +378,7 @@ input PostUpdateInput {
   title: String
   slug: String
   introduction: String
+  postType: PostPostTypeType
   status: String
   image: ImageFieldInput
   content: JSON
@@ -403,6 +419,7 @@ input PostCreateInput {
   title: String
   slug: String
   introduction: String
+  postType: PostPostTypeType
   status: String
   image: ImageFieldInput
   content: JSON
