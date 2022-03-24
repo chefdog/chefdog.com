@@ -1,4 +1,3 @@
-import BingMap from "../../components/bing-map"
 import Container from "../../components/container"
 import Header from "../../components/header"
 import Layout from "../../components/layout"
@@ -65,12 +64,7 @@ const Search  = () => {
 			</section>
 
                 <section id="map-section" className="map-section clearfix">
-                    <BingMap
-                        mapOptions={{
-                            center: [47.60357, -122.32945],
-                            credentials:"AnbnBixWEud1rt1HWz9sJ2DVFUzsFnbsYVXJPO-zVJzqrf14X04j_JNMi_N8DWLd"
-                        }}
-                    />
+                    
                 </section>
             </Container>
         </Layout>
