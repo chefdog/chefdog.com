@@ -1,0 +1,12 @@
+version: "3.7"
+
+services:
+  cfg-postgres:
+    image: postgres
+    command: docker run --name cfg-postgres -p 5432:5432 -e POSTGRES_PASSWORD=1ch@fdog31 -d postgres 
+    networks:
+      - back-tier
+  
+  cfg-frontend:
+    image: keystoneapp
+    
