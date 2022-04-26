@@ -3,10 +3,38 @@ version: "3.7"
 services:
   cfg-postgres:
     image: postgres
-    command: docker run --name cfg-postgres -p 5432:5432 -e POSTGRES_PASSWORD=1ch@fdog31 -d postgres 
-    networks:
-      - back-tier
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-q", "-d", "postgres", "-U", "postgres" ]
+      timeout: 45s
+      interval: 10s
+      retries: 10
+    restart: always
+    volumes:
+      - ./chefdog.postgres:/docker-entrypoint-initdb.d/
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=1ch@fdog31
+      - APP_DB_NAME=cfg-keystone-db
+      - APP_DB_USER=cfg-keystone-db-admin
+      - APP_DB_PASS=1ch@fdog33
   
-  cfg-frontend:
-    image: keystoneapp
+  cfg-backend:
+    image: chefdog/keystone
+    command: npm run start
+    environment:
+      - DATABASE_HOST=cfg-postgres
+      - DATABASE_NAME=cfg-keystone-db
+      - DATABASE_USER=cfg-keystone-db-admin
+      - DATABASE_PASSWORD=1ch@fdog33 
+      - DATABASE_PORT=5432
+    ports: 
+      - 3000:3000
+    links:
+      - cfg-postgres
+    depends_on:
+      - cfg-postgres
+
+ 
     

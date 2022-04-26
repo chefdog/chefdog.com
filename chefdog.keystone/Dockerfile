@@ -32,8 +32,6 @@ ADD . /home/node
 
 RUN chown -R node /home/node
 
-RUN npm run build
-
 # Runtime container
 USER node
 FROM node:${NODE_VERSION}-alpine
@@ -44,4 +42,4 @@ COPY --from=build /home/node /home/node
 
 EXPOSE 3000
 EXPOSE 5432
-CMD ["./dumb-init", "npm", "start"]
+# CMD ["./dumb-init", "npm", "start"]

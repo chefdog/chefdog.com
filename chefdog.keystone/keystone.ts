@@ -22,8 +22,7 @@ export default withAuth(
   config({    
     db: {
       provider: 'postgresql',
-      // url: 'file:./keystone.db', 
-      url: DATABASE_URL,
+      url: `postgres://${process.env.DATABASE_USER}:${process.env.DATABASE_PASSWORD}@${process.env.DATABASE_HOST}:${process.env.DATABASE_PORT}/${process.env.DATABASE_NAME}`,
       enableLogging: true,
       useMigrations: false,
       idField: { kind: 'uuid' },

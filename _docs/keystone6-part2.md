@@ -26,6 +26,9 @@ The other option is to pull a ready to go docker image.
 Open visual studio code, open een new terminal and get the postgres docker image: `docker pull postgres`.
 To run the image: `docker run --name some-name-postgres -p 5432:5432 -e POSTGRES_PASSWORD=yourPassWord -d postgres`
 
+### 1.B.1
+
+In order to setup the database for keystone, I have added a sql script that will be executed in the dockerfile
 
 ## 2. Configure keystone
 
