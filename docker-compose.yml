@@ -21,6 +21,11 @@ services:
       - APP_DB_PASS=1ch@fdog33
   
   cfg-backend:
+    build: 
+      args:
+        - NODE_ENV=development
+      context: ./chefdog.keystone
+      dockerfile: Dockerfile
     image: chefdog/keystone
     command: npm run start
     environment:

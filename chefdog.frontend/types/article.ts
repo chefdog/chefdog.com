@@ -6,7 +6,7 @@ type Article = {
     publishDate: string
     content: string
     image: {
-        src: string
+        url: string
     },
     author: {
         name:string

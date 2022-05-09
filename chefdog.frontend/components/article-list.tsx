@@ -1,23 +1,19 @@
-
 import { useQuery } from '@apollo/client';
 import Link from 'next/link';
-import { ARTICLES_QUERY } from '../lib/queries';
 import Article from '../types/article'
+import { POSTS_QUERY } from '../lib/queries';
 
 const ArticleList = () => {
-
-    const { data, loading, error, fetchMore } = useQuery(ARTICLES_QUERY, {
-        variables: { 
-          take:3, 
-          "orderBy": [
-            {
-              "id": "desc"
-            }
-          ],
+    const { data, loading, error, fetchMore } = useQuery(POSTS_QUERY, {
+        variables: {
+          "take": 10,
           "where": {
             "status": {
               "equals": "published"
             }
+          }, 
+          "orderby": {
+            "id": "desc"
           }
         },
     });
@@ -28,16 +24,19 @@ const ArticleList = () => {
  
     return (
         <>
-        {data?.articles.map((post: Article, i:number) => (
+        {console.log(process.env.NEXT_PUBLIC_CMS_API)}
+
+        {data?.posts.map((post: Article, i:number) => (
             <div className="blog-list clearfix" data-aos="fade-up" data-aos-delay="100" key={i}>
-            <Link as={`/articles/${post.slug}`} href="/articles/[slug]">
+            <Link as={`/articles/${post.slug}`} href="/articles/[slug]">              
               <a className="item-image">
-                <img src={process.env.NEXT_PUBLIC_CMS_API + post.image?.src} />
+                <img src={post.image?.url} />
               </a>
+              
             </Link>
                 <div className="item-content">
                     <h3 className="item-title">
-                    <Link as={`/articles/${post.slug}`} href="/articles/[slug]">
+                      <Link as={`/articles/${post.slug}`} href="/articles/[slug]">
                           <a>{post.title}</a>
                       </Link>
                     </h3>

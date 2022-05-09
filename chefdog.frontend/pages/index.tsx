@@ -8,7 +8,7 @@ import ArticleList from '../components/article-list'
 import PostList from '../components/post-list'
 import TagList from '../components/tag-list'
 import Layout from '../components/layout'
-import Container from '../components/container'
+import ContentContainer from '../components/content-container'
 
 const Home: NextPage = () => {
   
@@ -24,26 +24,25 @@ const Home: NextPage = () => {
       <Header></Header>
       
 
-      <Container>
-      <Breadcrumb></Breadcrumb>
+      <ContentContainer>
+        <Breadcrumb></Breadcrumb>
       
         <section id="blog-section" className="blog-section sec-ptb-100 clearfix">
           <div className='container'>
             <div className="row justify-content-lg-between justify-content-md-center justify-content-sm-center">
               <div className="col-lg-9 col-md-9 col-sm-12 col-xs-12">
-                <PostList></PostList>
+
                 <ArticleList></ArticleList>
               </div>
 
               <div className="col-lg-3 col-md-5 col-sm-12 col-xs-12">
                 <aside id="sidebar-section" className="sidebar-section">
-                  <TagList></TagList>
                 </aside>
               </div>
             </div>
           </div> 
         </section>
-      </Container>
+      </ContentContainer>
       <Footer></Footer>
       </Layout>
     </>

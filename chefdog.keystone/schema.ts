@@ -90,6 +90,7 @@ export const lists: Lists = {
           displayMode: 'segmented-control',
         },
       }),
+      image: image(),
       // The document field can be used for making highly editable content. Check out our
       // guide on the document field https://keystonejs.com/docs/guides/document-fields#how-to-use-document-fields
       // for more information
@@ -154,8 +155,22 @@ export const lists: Lists = {
           inlineCreate: { fields: ['title'] },
         },
         many: true,
-      }),
+      }),    
     },
+    hooks: {
+      resolveInput: ({ resolvedData }) => {
+        const { slug } = resolvedData;
+        if (slug) {
+          return {
+            ...resolvedData,
+            // Ensure no spaces
+            slug: slug.replace(' ', '-')
+          }
+        }
+        // We always return resolvedData from the resolveInput hook
+        return resolvedData;
+      }
+    }
   }),
   // Our final list is the tag list. This field is just a name and a relationship to posts
   Tag: list({

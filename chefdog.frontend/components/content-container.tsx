@@ -4,8 +4,8 @@ type Props = {
   children?: ReactNode
 }
 
-const Container: FunctionComponent = ({ children }: Props) => {
+const ContentContainer: FunctionComponent = ({ children }: Props) => {
   return <main>{children}</main>
 }
 
-export default Container
+export default ContentContainer
