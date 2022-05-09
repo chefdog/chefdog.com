@@ -16,11 +16,11 @@ I made some changes in order to build a frontend and get the production version 
 
 I have added the following in the config:
 
-graphql cors:
+cors:
 
-`graphql: {
+`server: {
       cors: {
-        origin: '*',
+        origin: 'http://localhost:3500',
         credentials: false,
         allowedHeaders: 'x-requested-with, Content-Type, origin, authorization, accept, client-security-token'
       },

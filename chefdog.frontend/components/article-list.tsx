@@ -24,13 +24,11 @@ const ArticleList = () => {
  
     return (
         <>
-        {console.log(process.env.NEXT_PUBLIC_CMS_API)}
-
         {data?.posts.map((post: Article, i:number) => (
             <div className="blog-list clearfix" data-aos="fade-up" data-aos-delay="100" key={i}>
             <Link as={`/articles/${post.slug}`} href="/articles/[slug]">              
               <a className="item-image">
-                <img src={post.image?.url} />
+                <img src={process.env.NEXT_PUBLIC_CMS_API + post.image?.url} />
               </a>
               
             </Link>
