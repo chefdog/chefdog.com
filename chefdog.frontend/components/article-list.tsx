@@ -23,36 +23,33 @@ const ArticleList = () => {
     }
  
     return (
-        <>
+      <section className="bg-white border-b py-8">
+        <div className="container max-w-5xl mx-auto m-8">
+        <h1 className="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
+          Latest news items
+        </h1>
+        <div className="w-full mb-4">
+          <div className="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
+        </div>
+        <div className="flex flex-wrap">
         {data?.posts.map((post: Article, i:number) => (
-            <div className="blog-list clearfix" data-aos="fade-up" data-aos-delay="100" key={i}>
-            <Link as={`/articles/${post.slug}`} href="/articles/[slug]">              
-              <a className="item-image">
-                <img src={process.env.NEXT_PUBLIC_CMS_API + post.image?.url} />
-              </a>
-              
-            </Link>
-                <div className="item-content">
-                    <h3 className="item-title">
-                      <Link as={`/articles/${post.slug}`} href="/articles/[slug]">
-                          <a>{post.title}</a>
-                      </Link>
-                    </h3>
-                    <div className="post-meta ul-li mb-30 clearfix">
-                        <ul className="clearfix">
-                            <li>{post.publishDate}</li>
-                            <li><a href="#!">
-                                {post.author?.name}
-                            </a></li>
-                        </ul>
-                    </div>
-                    <p className="mb-0">
-                        {post.introduction}
-                    </p>
-                </div>
+          <div className="w-5/6 sm:w-1/2 p-6" key={i}>
+            <h3 className="text-3xl text-gray-800 font-bold leading-none mb-3">
+              <Link as={`/articles/${post.slug}`} href="/articles/[slug]">
+                  <a>{post.title}</a>
+              </Link>
+            </h3>
+            <p className="text-gray-600 mb-8">
+              {post.introduction}
+              <br />
+              <br />
+              {post.publishDate}  / {post.author?.name}              
+            </p>
             </div>
-        ))}
-        </>
+          ))}
+          </div>
+        </div>
+    </section>
     )
 }
 

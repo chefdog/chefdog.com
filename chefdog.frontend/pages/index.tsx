@@ -5,10 +5,10 @@ import Breadcrumb from '../components/breadcrumb'
 import Footer from '../components/footer'
 import Header from '../components/header'
 import ArticleList from '../components/article-list'
-import PostList from '../components/post-list'
-import TagList from '../components/tag-list'
 import Layout from '../components/layout'
 import ContentContainer from '../components/content-container'
+import Hero from '../components/hero'
+import HeroBottom from '../components/hero-botton'
 
 const Home: NextPage = () => {
   
@@ -19,30 +19,17 @@ const Home: NextPage = () => {
         <title>Chefdog.com</title>
         <meta name="description" content="Freelance Angular, React, .NET developer" />
         <link rel="icon" href="/favicon.ico" />
+        <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"/>
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet" />                
       </Head>
 
       <Header></Header>
       
+      <Hero></Hero>
+      <HeroBottom></HeroBottom>
 
-      <ContentContainer>
-        <Breadcrumb></Breadcrumb>
-      
-        <section id="blog-section" className="blog-section sec-ptb-100 clearfix">
-          <div className='container'>
-            <div className="row justify-content-lg-between justify-content-md-center justify-content-sm-center">
-              <div className="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+      <ArticleList></ArticleList>
 
-                <ArticleList></ArticleList>
-              </div>
-
-              <div className="col-lg-3 col-md-5 col-sm-12 col-xs-12">
-                <aside id="sidebar-section" className="sidebar-section">
-                </aside>
-              </div>
-            </div>
-          </div> 
-        </section>
-      </ContentContainer>
       <Footer></Footer>
       </Layout>
     </>
