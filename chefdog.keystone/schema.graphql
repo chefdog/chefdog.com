@@ -133,6 +133,7 @@ type Post {
   slug: String
   status: String
   image: ImageFieldOutput
+  thumbnail: ImageFieldOutput
   content: Post_content_Document
   publishDate: DateTime
   author: User
@@ -261,6 +262,7 @@ input PostUpdateInput {
   slug: String
   status: String
   image: ImageFieldInput
+  thumbnail: ImageFieldInput
   content: JSON
   publishDate: DateTime
   author: UserRelateToOneForUpdateInput
@@ -315,6 +317,7 @@ input PostCreateInput {
   slug: String
   status: String
   image: ImageFieldInput
+  thumbnail: ImageFieldInput
   content: JSON
   publishDate: DateTime
   author: UserRelateToOneForCreateInput

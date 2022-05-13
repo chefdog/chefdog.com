@@ -1,12 +1,10 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 
-import Breadcrumb from '../components/breadcrumb'
 import Footer from '../components/footer'
 import Header from '../components/header'
 import ArticleList from '../components/article-list'
 import Layout from '../components/layout'
-import ContentContainer from '../components/content-container'
 import Hero from '../components/hero'
 import HeroBottom from '../components/hero-botton'
 

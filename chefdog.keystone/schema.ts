@@ -91,6 +91,7 @@ export const lists: Lists = {
         },
       }),
       image: image(),
+      thumbnail: image(),
       // The document field can be used for making highly editable content. Check out our
       // guide on the document field https://keystonejs.com/docs/guides/document-fields#how-to-use-document-fields
       // for more information
