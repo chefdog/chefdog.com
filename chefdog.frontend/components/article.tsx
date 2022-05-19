@@ -39,7 +39,7 @@ const ArticlePost = () => {
     });
     if (loading) return <p>Loading...</p>;
     if (error) {
-      return <p>:( an error happened {error}</p>;
+      return <>an error happened {error}</>;
     }
  
     return (
@@ -48,7 +48,7 @@ const ArticlePost = () => {
             <div className="blog-list clearfix" data-aos="fade-up" data-aos-delay="100" key={i}>
             <Link href={`/blog/${encodeURIComponent(post.id)}`}>
               <a className="item-image">
-                <img src={process.env.NEXT_PUBLIC_CMS_API + post.image.src} />
+                <Image src={process.env.NEXT_PUBLIC_CMS_API + post.image.url} alt={post.title} />
               </a>
             </Link>
                 <div className="item-content">
@@ -66,7 +66,7 @@ const ArticlePost = () => {
                         </ul>
                     </div>
                     <p className="mb-0">
-                        {post.introduction}
+                        
                     </p>
                 </div>
             </div>

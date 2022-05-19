@@ -15,11 +15,7 @@ const Home: NextPage = () => {
     <>
     <Layout>
       <Head>
-        <title>Chefdog.com</title>
-        <meta name="description" content="Freelance Angular, React, .NET developer" />
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"/>
-        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet" />                
+        <title>Chefdog.com</title>                       
       </Head>
 
       <Header></Header>

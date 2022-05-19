@@ -26,7 +26,7 @@ services:
         - NODE_ENV=development
       context: ./chefdog.keystone
       dockerfile: Dockerfile
-    image: chefdog/keystone
+    image: chefdog-keystone
     command: npm run start
     environment:
       - DATABASE_HOST=cfg-postgres
@@ -40,6 +40,21 @@ services:
       - cfg-postgres
     depends_on:
       - cfg-postgres
+
+  cfg-frontend:
+    build: 
+      args:
+        - NODE_ENV=development
+      context: ./chefdog.frontend
+      dockerfile: Dockerfile
+    image: chefdog-frontend
+    command: npm run start    
+    ports: 
+      - 3500:3500
+    links:
+      - cfg-backend
+    depends_on:
+      - cfg-backend
 
  
     

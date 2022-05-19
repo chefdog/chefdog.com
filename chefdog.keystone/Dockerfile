@@ -28,6 +28,7 @@ COPY ./schema.graphql ./schema.graphql
 COPY ./schema.prisma ./schema.prisma
 COPY ./seed-data/data.ts ./seed-data/data.ts
 COPY ./seed-data/index.ts ./seed-data/index.ts
+COPY ./.env ./.env
 
 RUN npm install 
 

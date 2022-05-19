@@ -19,7 +19,7 @@ const ArticleList = () => {
     });
     if (loading) return <p>Loading...</p>;
     if (error) {
-      return <p>:( an error happened {error}</p>;
+      return <>an error happened {error}</>;
     }
  
     return (
