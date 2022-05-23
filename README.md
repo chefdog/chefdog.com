@@ -16,6 +16,7 @@ Now I am sure that there a many solutions and that there are better solutions as
 - sqlite (will be initialized+installed in this tutorial)
 - [nodejs 16.14.2](https://nodejs.org/en/)
 - [postgresql](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads)
+- [pgadmin4](https://www.pgadmin.org/)
 
 Visual Studio Code extensions:
 
@@ -24,9 +25,13 @@ Visual Studio Code extensions:
 
 ## 3. Project setup
 
-This development adventures series, consists of a couple repositories.
-- [Chefdog KeystoneJS repo](https://github.com/chefdog/chefdog.keystonejs)
-- [Chefdog KestoneJS blog](https://github.com/chefdog/chefdog.keystonejs.blog)
+This development adventures series, consists of a couple folders.
+- _docs; the markdown files
+- chefdog.keystone, the CMS
+- chefdog.frontend, the nextjs website
+- chefdog.postgres, sql files
+
+The frontend was based on [Landing page](https://www.tailwindtoolbox.com/templates/landing-page-demo.php)
 
 ## 4. Table of contents
 

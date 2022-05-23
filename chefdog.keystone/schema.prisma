@@ -20,17 +20,29 @@ model User {
 }
 
 model Post {
-  id          String    @id @default(uuid()) @postgresql.Uuid
-  title       String    @default("")
-  slug        String    @default("")
-  status      String?   @default("draft")
-  content     Json      @default("[{\"type\":\"paragraph\",\"children\":[{\"text\":\"\"}]}]")
-  publishDate DateTime?
-  author      User?     @relation("Post_author", fields: [authorId], references: [id])
-  authorId    String?   @map("author") @postgresql.Uuid
-  tags        Tag[]     @relation("Post_tags")
-  company     Company?  @relation("Company_posts")
-  reviews     Review[]  @relation("Post_reviews")
+  id                  String    @id @default(uuid()) @postgresql.Uuid
+  title               String    @default("")
+  slug                String    @default("")
+  status              String?   @default("draft")
+  image_filesize      Int?
+  image_extension     String?
+  image_width         Int?
+  image_height        Int?
+  image_mode          String?
+  image_id            String?
+  thumbnail_filesize  Int?
+  thumbnail_extension String?
+  thumbnail_width     Int?
+  thumbnail_height    Int?
+  thumbnail_mode      String?
+  thumbnail_id        String?
+  content             Json      @default("[{\"type\":\"paragraph\",\"children\":[{\"text\":\"\"}]}]")
+  publishDate         DateTime?
+  author              User?     @relation("Post_author", fields: [authorId], references: [id])
+  authorId            String?   @map("author") @postgresql.Uuid
+  tags                Tag[]     @relation("Post_tags")
+  company             Company?  @relation("Company_posts")
+  reviews             Review[]  @relation("Post_reviews")
 
   @@index([authorId])
 }

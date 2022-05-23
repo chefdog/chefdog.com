@@ -1,4 +1,5 @@
 import { gql, useQuery } from "@apollo/client";
+import Tag from "../types/tag";
 
 
 const TAGS_QUERY = gql`query QueryTags {
@@ -12,7 +13,7 @@ const TagList = () => {
     const { data, loading, error, fetchMore } = useQuery(TAGS_QUERY);
     if (loading) return <p>Loading...</p>;
     if (error) {
-      return <p>:( an error happened {error}</p>;
+      return <>an error happened {error}</>;
     }
 
     return (
@@ -21,7 +22,7 @@ const TagList = () => {
             <div className="items-list ul-li clearfix">
                 <ul className="clearfix">
                 {data?.tags.map((tag: Tag, i:number) => (
-                    <li><a href="#!">{tag.name}</a></li>
+                    <li key={i}><a href="#!">{tag.name}</a></li>
                 ))}                    
                 </ul>
             </div>

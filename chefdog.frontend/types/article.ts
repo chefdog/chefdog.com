@@ -1,12 +1,16 @@
 import Paragraph from "./paragraph"
+import ContentItem from "./content-item";
 
 type Article = {
+    id: string,
     title: string
-    introduction: string
     publishDate: string
-    content: string
+    content: ContentItem,
     image: {
-        src: string
+        url: string
+    },
+    thumbnail: {
+        url: string
     },
     author: {
         name:string

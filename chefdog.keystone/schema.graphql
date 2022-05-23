@@ -132,6 +132,8 @@ type Post {
   title: String
   slug: String
   status: String
+  image: ImageFieldOutput
+  thumbnail: ImageFieldOutput
   content: Post_content_Document
   publishDate: DateTime
   author: User
@@ -150,6 +152,23 @@ type Post {
     skip: Int! = 0
   ): [Review!]
   reviewsCount(where: ReviewWhereInput! = {}): Int
+}
+
+interface ImageFieldOutput {
+  id: ID!
+  filesize: Int!
+  width: Int!
+  height: Int!
+  extension: ImageExtension!
+  ref: String!
+  url: String!
+}
+
+enum ImageExtension {
+  jpg
+  png
+  webp
+  gif
 }
 
 type Post_content_Document {
@@ -242,6 +261,8 @@ input PostUpdateInput {
   title: String
   slug: String
   status: String
+  image: ImageFieldInput
+  thumbnail: ImageFieldInput
   content: JSON
   publishDate: DateTime
   author: UserRelateToOneForUpdateInput
@@ -249,6 +270,16 @@ input PostUpdateInput {
   company: CompanyRelateToOneForUpdateInput
   reviews: ReviewRelateToManyForUpdateInput
 }
+
+input ImageFieldInput {
+  upload: Upload
+  ref: String
+}
+
+"""
+The `Upload` scalar type represents a file upload.
+"""
+scalar Upload
 
 input UserRelateToOneForUpdateInput {
   create: UserCreateInput
@@ -285,6 +316,8 @@ input PostCreateInput {
   title: String
   slug: String
   status: String
+  image: ImageFieldInput
+  thumbnail: ImageFieldInput
   content: JSON
   publishDate: DateTime
   author: UserRelateToOneForCreateInput
@@ -369,23 +402,6 @@ type Company {
   posts: Post
 }
 
-interface ImageFieldOutput {
-  id: ID!
-  filesize: Int!
-  width: Int!
-  height: Int!
-  extension: ImageExtension!
-  ref: String!
-  url: String!
-}
-
-enum ImageExtension {
-  jpg
-  png
-  webp
-  gif
-}
-
 input CompanyWhereUniqueInput {
   id: ID
   email: String
@@ -422,16 +438,6 @@ input CompanyUpdateInput {
   logo: ImageFieldInput
   posts: PostRelateToOneForUpdateInput
 }
-
-input ImageFieldInput {
-  upload: Upload
-  ref: String
-}
-
-"""
-The `Upload` scalar type represents a file upload.
-"""
-scalar Upload
 
 input PostRelateToOneForUpdateInput {
   create: PostCreateInput

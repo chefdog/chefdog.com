@@ -9,6 +9,10 @@ export const companies = [
     { name: 'Zwarte Roes', website: 'https://www.zwarteroes.nl', twitter: '', email: 'info@zwarteroes.nl', description: '' }
 ];
 
+export const reviews = [
+    { title: '', grinder: 4.25, coffee: 9.0, elapseTime: 30, volume: 31.2 }
+];
+
 export const posts = [
     { 
         title: 'Los Amigos',  

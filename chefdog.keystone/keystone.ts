@@ -6,6 +6,7 @@ It looks at the default export, and expects a Keystone config object.
 You can find all the config options in our docs here: https://keystonejs.com/docs/apis/config
 */
 
+
 import { config } from '@keystone-6/core';
 
 // Look in the schema file for how we define our lists, and how users interact with them through graphql or the Admin UI
@@ -13,16 +14,15 @@ import { lists } from './schema';
 
 // Keystone auth is configured separately - check out the basic auth setup we are importing from our auth file.
 import { withAuth, session } from './auth';
-import { DATABASE_URL } from './config';
 import { insertSeedData } from './seed-data';
+import KeystoneSettings from './keystone-settings';
 
 export default withAuth(
   // Using the config function helps typescript guide you to the available options.
-
   config({    
     db: {
       provider: 'postgresql',
-      url: `postgres://${process.env.DATABASE_USER}:${process.env.DATABASE_PASSWORD}@${process.env.DATABASE_HOST}:${process.env.DATABASE_PORT}/${process.env.DATABASE_NAME}`,
+      url: KeystoneSettings(),
       enableLogging: true,
       useMigrations: false,
       idField: { kind: 'uuid' },
@@ -46,12 +46,12 @@ export default withAuth(
     },
     lists,
     session,
-    graphql: {
+    server: {
       cors: {
-        origin: '*',
+        origin: 'http://localhost:3500',
         credentials: false,
         allowedHeaders: 'x-requested-with, Content-Type, origin, authorization, accept, client-security-token'
       },
-    }
+    },
   })
 );
