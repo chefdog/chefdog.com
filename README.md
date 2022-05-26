@@ -27,6 +27,7 @@ Visual Studio Code extensions:
 
 This development adventures series, consists of a couple folders.
 - _docs; the markdown files
+- _sources; free images that are used. Images are downloaded from [vecteezy.com](https://www.vecteezy.com)
 - chefdog.keystone, the CMS
 - chefdog.frontend, the nextjs website
 - chefdog.postgres, sql files
