@@ -28,18 +28,19 @@ Visual Studio Code extensions:
 This development adventures series, consists of a couple folders.
 - _docs; the markdown files
 - _sources; free images that are used. Images are downloaded from [vecteezy.com](https://www.vecteezy.com)
-- chefdog.keystone, the CMS
-- chefdog.frontend, the nextjs website
-- chefdog.postgres, sql files
+- chefdog.keystone; the CMS
+- chefdog.frontend; the nextjs website
+- chefdog.postgres; sql files
 
 The frontend was based on [Landing page](https://www.tailwindtoolbox.com/templates/landing-page-demo.php)
 
 ## 4. Table of contents
 
-- Part 1: [setup keystone in docker (done)](/_docs/keystone6-part1.md)
+- Part 1: [Setup keystone in docker (done)](/_docs/keystone6-part1.md)
 - Part 2: [Adding postgress sql](/_docs/keystone6-part2.md)
 - Part 3: [Expanding the blog sample](/_docs/keystone6-part3.md). 
 - Part 4: [Adding a frontend in nextjs](/_docs/keystone6-part4.md). (inprogress)
 - Part 5: [Docker Compose](/_docs/keystone6-part5.md) 
 - Part 6: Azure (todo)
+- Part 7: [Thoughts and issues](/_docs/keystone6-part7.md) 
 
