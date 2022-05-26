@@ -1,4 +1,4 @@
-# Chefdog dev adventures: keystonejs 6
+# Chefdog dev adventures: Docker, Docker Compose, keystonejs 6 and NextJS
 
 ## 1. Introduction
 
