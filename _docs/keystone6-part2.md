@@ -1,5 +1,5 @@
 
-# Chefdog dev adventure : Part 2, keystonejs6 and postrgresql
+# Chefdog dev adventure : Part 2, keystonejs6 and postgresql
 
 ## 1.A. install postgresql
 

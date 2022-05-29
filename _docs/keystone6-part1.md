@@ -1,6 +1,6 @@
-# Keystone6 docker
+# Part 1: Keystone6 & docker
 
-## 4. Keystone
+## Keystone
 
 First step is to setup keystone. Make sure you installed nodejs.
 Open Visual Studio Code and open a new terminal.
@@ -45,7 +45,7 @@ In Visual Studio Code, goto the app (`cd cfg-cms`) open a new terminal and run `
 
 Make sure to shutdown the running version, before you continue.
 
-## 5. Docker
+## Docker
 
 Open VS Code Command Palette (F1) and type `add docker files to workspace`, then select the Docker: Add Docker files to workspace command.
 Node.js > cfg-cms\package.json > 3000 > No
@@ -54,7 +54,7 @@ This wil generate a docker file and .dockerignore. We need to change the content
 The docker files uses a similar setup as https://v5.keystonejs.com/guides/deployment but with changes in order to get keystone6 working.
 The main solution was to certain copy files before the npm install command. And make sure the right user is executing the steps.
 
-## 6. Build a docker image
+## Build a docker image
 
 Open VS Code Command Palette (F1) and type `Docker Images: Build Image`. If everything is succesfull, open the docker extension in Visual Studio Code.
 You should see your image under the Images tab. Open docker desktop and run the image. Make sure you add "optional settings", add port 3000 under localhost.
