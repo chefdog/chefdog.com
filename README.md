@@ -22,6 +22,7 @@ Visual Studio Code extensions:
 
 - [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker)
 - [Sqlite exension](https://marketplace.visualstudio.com/items?itemName=alexcvzz.vscode-sqlite)
+- [Azure Storage](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage)
 
 ## 3. Project setup
 

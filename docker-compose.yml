@@ -1,5 +1,12 @@
 version: "3.7"
 
+volumes:
+  cfgdata:
+    driver: azure_file
+    driver_opts:
+      share_name: cfgfileshare
+      storage_account_name: cfgstorage
+
 services:
   cfg-postgres:
     image: acrcfg.azurecr.io/postgres
@@ -10,7 +17,7 @@ services:
       retries: 10
     restart: always
     volumes:
-      - ./chefdog.postgres:/docker-entrypoint-initdb.d/
+      - cfgdata:/docker-entrypoint-initdb.d/
     ports:
       - 5432:5432
     environment:
