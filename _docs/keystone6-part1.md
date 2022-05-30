@@ -6,9 +6,9 @@ First step is to setup keystone. Make sure you installed nodejs.
 Open Visual Studio Code and open a new terminal.
 
 Run the following command in the root folder: `npm init keystone-app`. On the question "What directory should create-keystone-app generate your app into?"
-I use cfg-cms as application name, you could use anything.
+I use chefdog.keystone as application name, you could use anything.
 
-Next goto the aplpication folder, `cd cfg-cms`, run `npm run dev` and lets see if the keystone cms works. Open http://localhost:3000
+Next goto the aplpication folder, `cd chefdog.keystone`, run `npm run dev` and lets see if the keystone cms works. Open http://localhost:3000
 Remember we are working with Sqlite. Sqlite is an awesome database, but should not be used for larger projects in production environments.
 
 I made some changes in order to build a frontend and get the production version running:

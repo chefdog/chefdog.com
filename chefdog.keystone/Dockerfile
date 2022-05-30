@@ -1,7 +1,6 @@
 
 # https://docs.docker.com/samples/library/node/
 ARG NODE_VERSION=16.14.2
-ARG NODE_ENVIRONMENT=production
 
 # https://github.com/Yelp/dumb-init/releases
 ARG DUMB_INIT_VERSION=1.2.2
@@ -9,7 +8,8 @@ ARG DUMB_INIT_VERSION=1.2.2
 # Build container
 FROM node:${NODE_VERSION}-alpine AS build
 ARG DUMB_INIT_VERSION
-ENV NODE_ENV $NODE_ENV
+
+ENV NODE_ENV production
 
 WORKDIR /home/node
 
@@ -28,7 +28,7 @@ COPY ./schema.graphql ./schema.graphql
 COPY ./schema.prisma ./schema.prisma
 COPY ./seed-data/data.ts ./seed-data/data.ts
 COPY ./seed-data/index.ts ./seed-data/index.ts
-COPY ./.env ./.env
+
 
 RUN npm install 
 

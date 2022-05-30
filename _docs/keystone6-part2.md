@@ -5,17 +5,7 @@
 
 [Postgresql 14.2](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads)
 
-First setup a dbuser and password for the keystone database. For development purpose I made an user with super-user role.
-Create a `.env` file in the root of the application (cfg-cms in my case) and create the following variable,
-or copy the .env.example file and rename it to .env en change its content. Remember to add .env to your .gitignore file
-
-`DB_URL=postgres://your-db-user:your-db-password@your-db-server-address/your-db-name;`
-
-Create a new file, called config.ts in the root of the application. Its content should containe:
-
-```typescript
-export const DATABASE_URL = process.env.DB_URL || `postgres://${process.env.USER}@localhost/keystone-6-example`;
-```
+Setup a dbuser and password for the keystone database. For development purpose I made an user with super-user role.
 
 ### 1.B. postgres docker
 
@@ -34,12 +24,27 @@ In order to setup the database for keystone, I have added a sql script that will
 
 [See official documentation](https://keystonejs.com/docs/apis/config#postgresql)
 
-My setup is:
+Create a new file, called keystone-settings.ts in the root of the application. Its content should contain something like this:
+
+```typescript
+const KeystoneSettings = () => {    
+    let DATABASE_URL = 'postgres://cfg-keystone-db-admin:1ch@fdog33@localhost:5432/cfg-keystone-db';
+
+    if(process.env.NODE_ENV === 'production') {
+        DATABASE_URL = `postgres://${process.env.DATABASE_USER}:${process.env.DATABASE_PASSWORD}@${process.env.DATABASE_HOST}:${process.env.DATABASE_PORT}/${process.env.DATABASE_NAME}`;
+    }
+    return DATABASE_URL;    
+}
+
+export default KeystoneSettings;
+```
+
+and in the keystone.ts file, use the settings
 
 ```typescript
 db: {
       provider: 'postgresql',
-      url: `postgres://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_SERVER}/${process.env.DB_NAME}`,
+      url: KeystoneSettings(),
       enableLogging: true,
       useMigrations: true,
       idField: { kind: 'uuid' },

@@ -9,7 +9,8 @@ volumes:
 
 services:
   cfg-postgres:
-    image: acrcfg.azurecr.io/postgres
+    image: acrchefdog.azurecr.io/postgres
+    container_name: cfg-postgres
     healthcheck:
       test: [ "CMD", "pg_isready", "-q", "-d", "postgres", "-U", "postgres" ]
       timeout: 45s
@@ -30,10 +31,11 @@ services:
   cfg-backend:
     build: 
       args:
-        - NODE_ENV=development
+        - NODE_ENV=production
       context: ./chefdog.keystone
       dockerfile: Dockerfile
-    image: acrcfg.azurecr.io/chefdog-keystone
+    image: acrchefdog.azurecr.io/chefdog-keystone
+    container_name: cfg-keystone
     command: npm run start
     environment:
       - DATABASE_HOST=cfg-postgres
@@ -51,10 +53,11 @@ services:
   cfg-frontend:
     build: 
       args:
-        - NODE_ENV=development
+        - NODE_ENV=production
       context: ./chefdog.frontend
       dockerfile: Dockerfile
-    image: acrcfg.azurecr.io/chefdog-frontend
+    image: acrchefdog.azurecr.io/chefdog-frontend
+    container_name: cfg-frontend
     command: npm run start    
     ports: 
       - 3500:3500
