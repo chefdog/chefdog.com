@@ -32,6 +32,9 @@ FROM node:16-alpine AS runner
 WORKDIR /app
 
 ENV NODE_ENV production
+ENV NEXT_PUBLIC_CMS_API=http://localhost:3000
+ENV GOOGLE_MAPS_KEY=
+
 # Uncomment the following line in case you want to disable telemetry during runtime.
 # ENV NEXT_TELEMETRY_DISABLED 1
 

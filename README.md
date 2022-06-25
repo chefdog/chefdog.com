@@ -3,7 +3,7 @@
 ## 1. Introduction
 
 This repo is an howto get Keystone6 up and running in a docker container, setup a blog in keystone, add a frontend
-and deploy to azure.
+and deploy to azure. It is a work in progress repo and it is done when it is done.
 
 Now I am sure that there a many solutions and that there are better solutions as what I am presenting here. But I tried many approaches and used a couple of guides, none of them worked with Keystone6. This guide provides a working solution for keystone6 and docker. 
 
@@ -22,6 +22,7 @@ Visual Studio Code extensions:
 
 - [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker)
 - [Sqlite exension](https://marketplace.visualstudio.com/items?itemName=alexcvzz.vscode-sqlite)
+- [Azure Storage](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage)
 
 ## 3. Project setup
 
