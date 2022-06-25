@@ -3,7 +3,7 @@
 ## 1. Introduction
 
 This repo is an howto get Keystone6 up and running in a docker container, setup a blog in keystone, add a frontend
-and deploy to azure.
+and deploy to azure. It is a work in progress repo and it is done when it is done.
 
 Now I am sure that there a many solutions and that there are better solutions as what I am presenting here. But I tried many approaches and used a couple of guides, none of them worked with Keystone6. This guide provides a working solution for keystone6 and docker. 
 
@@ -41,7 +41,7 @@ The frontend was based on [Landing page](https://www.tailwindtoolbox.com/templat
 - Part 2: [Adding postgress sql](/_docs/keystone6-part2.md)
 - Part 3: [Expanding the blog sample](/_docs/keystone6-part3.md). 
 - Part 4: [Adding a frontend in nextjs](/_docs/keystone6-part4.md). (inprogress)
-- Part 5: [Docker Compose](/_docs/keystone6-part5.md) 
+- Part 5: [Docker Compose](/_docs/keystone6-part5.md) (inprogress)
 - Part 6: Azure (todo)
 - Part 7: [Thoughts and issues](/_docs/keystone6-part7.md) 
 
